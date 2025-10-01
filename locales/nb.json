@@ -60,8 +60,7 @@
     "decrease_quantity": "Reduser antallet",
     "increase_quantity": "Øk antallet",
     "quantity": "Antall",
-    "rating": "Vurderingen av dette produktet er {{ rating }} av 5",
-    "nested_product": "{{ product_title }} for {{ parent_title }}"
+    "rating": "Vurderingen av dette produktet er {{ rating }} av 5"
   },
   "actions": {
     "add_to_cart": "Legg i handlekurv",
@@ -213,16 +212,7 @@
       "other": "{{ count }} igjen"
     },
     "powered_by": "Denne butikken skal bli drevet av",
-    "store_owner_link_html": "Er du butikkeieren? <a href=\"{{ link }}\">Logg inn her</a>",
-    "recipient_form_send_to": "Send til",
-    "recipient_form_email_label": "Mottakerens e-postadresse",
-    "recipient_form_email_label_my_email": "Min e-postadresse",
-    "recipient_form_email_address": "Mottakerens e-postadresse",
-    "recipient_form_name_label": "Mottakerens navn (valgfritt)",
-    "recipient_form_characters_used": "{{ used_chars }}/{{ max_chars }} tegn brukt",
-    "recipient_form_send_on": "DD.MM.ÅÅÅÅ",
-    "recipient_form_send_on_label": "Send den (valgfritt)",
-    "recipient_form_message": "Melding (valgfritt)"
+    "store_owner_link_html": "Er du butikkeieren? <a href=\"{{ link }}\">Logg inn her</a>"
   },
   "gift_cards": {
     "issued": {

@@ -1,6 +1,4 @@
-
-
-{%- assign block_settings = block.settings -%}
+{% # import schema from '../schemas/blocks/_blog-post-card' %}
 
 {% capture title %}
   {% content_for 'block', id: 'heading', type: '_heading', text: article.title %}
@@ -10,7 +8,7 @@
   {% content_for 'block',
     id: 'blog-post-details',
     type: '_blog-post-info-text',
-    alignment: block_settings.alignment,
+    alignment: block.settings.alignment,
     article: article
   %}
 {% endcapture %}
@@ -21,7 +19,7 @@
 
 <div
   class="blog-post-card"
-  style="--text-align: {{ block_settings.alignment }}"
+  style="--text-align: {{ block.settings.alignment }}"
 >
   {%- if article.image -%}
     <div class="blog-post-card__image-container">
@@ -97,11 +95,11 @@
   }
 
   .blog-post-card__content a:hover [style*='--color: var(--color-foreground-heading)'] {
-    color: rgb(var(--color-foreground-heading-rgb) / var(--opacity-subdued-text));
+    color: rgba(from var(--color-foreground-heading) r g b / var(--opacity-subdued-text));
   }
 
   .blog-post-card__content a:hover [style*='--color: var(--color-foreground)'] {
-    color: rgb(var(--color-foreground-rgb) / var(--opacity-subdued-text));
+    color: rgba(from var(--color-foreground) r g b / var(--opacity-subdued-text));
   }
 {% endstylesheet %}
 

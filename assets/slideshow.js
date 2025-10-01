@@ -32,33 +32,6 @@ const SLIDE_VISIBLITY_THRESHOLD = 0.7;
  * @extends {Component<Refs>}
  */
 export class Slideshow extends Component {
-  static get observedAttributes() {
-    return ['initial-slide'];
-  }
-
-  /**
-   * @param {string} name
-   * @param {string} oldValue
-   * @param {string} newValue
-   */
-  attributeChangedCallback(name, oldValue, newValue) {
-    // Collection page filtering will Morph slideshow galleries in place, updating
-    // the slideshow[initial-slide] and slideshow-slide[hidden] attributes.
-    // We need to re-select() the slide after the morph is complete, but not before
-    // slideshow-slide elements have their [hidden] attribute updated.
-    if (name === 'initial-slide' && oldValue !== newValue) {
-      queueMicrotask(() => {
-        // Only select if the component is connected and initialized
-        if (!this.isConnected || !this.#scroll || !this.refs.slides) return;
-        const index = parseInt(newValue, 10) || 0;
-        const slide_id = this.refs.slides[index]?.getAttribute('slide-id');
-        if (slide_id) {
-          this.select({ id: slide_id }, undefined, { animate: false });
-        }
-      });
-    }
-  }
-
   requiredRefs = ['scroller'];
 
   async connectedCallback() {
@@ -91,14 +64,14 @@ export class Slideshow extends Component {
 
     this.resume();
 
-    this.current = this.initialSlideIndex;
+    this.current = this.dataset.initialSlide ? parseInt(this.dataset.initialSlide, 10) : 0;
 
     // Batch reads and writes to the DOM
     scheduler.schedule(() => {
       let visibleSlidesAmount = 0;
-      const initialSlideId = this.initialSlide?.getAttribute('slide-id');
-      if (this.initialSlideIndex !== 0 && initialSlideId) {
-        this.select({ id: initialSlideId }, undefined, { animate: false });
+
+      if (this.current !== 0) {
+        this.select(this.current, undefined, { animate: false });
         visibleSlidesAmount = 1;
       } else {
         visibleSlidesAmount = this.#updateVisibleSlides();
@@ -145,7 +118,7 @@ export class Slideshow extends Component {
     return this.parentElement?.closest('slideshow-component') !== null;
   }
 
-  get initialSlide() {
+  get defaultSlide() {
     return this.refs.slides?.[this.initialSlideIndex];
   }
 
@@ -185,10 +158,8 @@ export class Slideshow extends Component {
       }
     })();
 
-    const { current } = this;
-
     // Guard if invalid
-    if (requestedIndex === undefined || isNaN(requestedIndex) || requestedIndex === current) return;
+    if (requestedIndex === undefined || isNaN(requestedIndex)) return;
 
     const { slides } = this;
 
@@ -197,6 +168,7 @@ export class Slideshow extends Component {
 
     event?.preventDefault();
 
+    const { current } = this;
     const { animate = true } = options;
     const lastIndex = slides.length - 1;
 
@@ -682,10 +654,7 @@ export class Slideshow extends Component {
    * @type {number}
    */
   get initialSlideIndex() {
-    const initialSlide = this.getAttribute('initial-slide');
-    if (initialSlide == null) return 0;
-
-    return parseInt(initialSlide, 10);
+    return this.dataset.initialSlide ? parseInt(this.dataset.initialSlide, 10) : 0;
   }
 
   /**

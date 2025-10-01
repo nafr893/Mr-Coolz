@@ -7,7 +7,6 @@
   @param {number} [line_index] - the index of the forloop representing the line on which the quantity selector is rendered
   @param {number} [min] - the minimum quantity the input supports
   @param {string} [class] - custom class for the quantity selector, optional
-  @param {boolean} [can_update_quantity] - whether the quantity can be updated, defaults to true
 {%- enddoc -%}
 
 {% liquid
@@ -27,9 +26,6 @@
     name="minus"
     on:click="/decreaseQuantity"
     ref="quantityButtons[]"
-    {% if can_update_quantity == false %}
-      disabled
-    {% endif %}
   >
     <span class="visually-hidden">{{ 'accessibility.decrease_quantity' | t }}</span
     ><span class="svg-wrapper icon-plus">
@@ -52,7 +48,7 @@
       max="{{ variant.quantity_rule.max }}"
     {% endif %}
     step="{{ variant.quantity_rule.increment | default: 1 }}"
-    {% if can_update_quantity == false or variant.available == false %}
+    {% if variant.available == false %}
       disabled
     {% endif %}
   >
@@ -62,9 +58,6 @@
     name="plus"
     on:click="/increaseQuantity"
     ref="quantityButtons[]"
-    {% if can_update_quantity == false %}
-      disabled
-    {% endif %}
   >
     <span class="visually-hidden">{{ 'accessibility.increase_quantity' | t }}</span
     ><span class="svg-wrapper icon-plus">

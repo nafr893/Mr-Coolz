@@ -1,7 +1,6 @@
 import { Component } from '@theme/component';
 import { VariantSelectedEvent, VariantUpdateEvent } from '@theme/events';
 import { morph } from '@theme/morph';
-import { requestYieldCallback } from '@theme/utilities';
 
 /**
  * A custom element that manages a variant picker.
@@ -28,32 +27,34 @@ export default class VariantPicker extends Component {
    * @param {Event} event - The variant change event.
    */
   variantChanged(event) {
-    if (!(event.target instanceof HTMLElement)) return;
-
-    const selectedOption =
-      event.target instanceof HTMLSelectElement ? event.target.options[event.target.selectedIndex] : event.target;
-
-    if (!selectedOption) return;
+    // if (!(event.target instanceof HTMLElement)) return;
 
     this.updateSelectedOption(event.target);
-    this.dispatchEvent(new VariantSelectedEvent({ id: selectedOption.dataset.optionValueId ?? '' }));
+    this.dispatchEvent(new VariantSelectedEvent({ id: event.target.dataset.optionValueId ?? '' }));
 
     const isOnProductPage =
-      this.dataset.templateProductMatch === 'true' &&
+      Theme.template.name === 'product' &&
       !event.target.closest('product-card') &&
       !event.target.closest('quick-add-dialog');
 
     // Morph the entire main content for combined listings child products, because changing the product
     // might also change other sections depending on recommendations, metafields, etc.
     const currentUrl = this.dataset.productUrl?.split('?')[0];
-    const newUrl = selectedOption.dataset.connectedProductUrl;
+    const newUrl = event.target.dataset.connectedProductUrl;
     const loadsNewProduct = isOnProductPage && !!newUrl && newUrl !== currentUrl;
 
-    this.fetchUpdatedSection(this.buildRequestUrl(selectedOption), loadsNewProduct);
+    this.fetchUpdatedSection(this.buildRequestUrl(event.target), loadsNewProduct);
 
     const url = new URL(window.location.href);
 
-    const variantId = selectedOption.dataset.variantId || null;
+    let variantId;
+
+    if (event.target instanceof HTMLInputElement && event.target.type === 'radio') {
+      variantId = event.target.dataset.variantId || null;
+    } else if (event.target instanceof HTMLSelectElement) {
+      const selectedOption = event.target.options[event.target.selectedIndex];
+      variantId = selectedOption?.dataset.variantId || null;
+    }
 
     if (isOnProductPage) {
       if (variantId) {
@@ -69,9 +70,7 @@ export default class VariantPicker extends Component {
     }
 
     if (url.href !== window.location.href) {
-      requestYieldCallback(() => {
-        history.replaceState({}, '', url.toString());
-      });
+      history.replaceState({}, '', url.toString());
     }
   }
 
@@ -180,7 +179,7 @@ export default class VariantPicker extends Component {
       })
       .catch((error) => {
         if (error.name === 'AbortError') {
-          console.warn('Fetch aborted by user');
+          console.log('Fetch aborted by user');
         } else {
           console.error(error);
         }

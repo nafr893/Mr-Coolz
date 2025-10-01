@@ -1,6 +1,4 @@
-
-
-{%- assign block_settings = block.settings -%}
+{% # import schema from '../schemas/blocks/_search-input' %}
 
 <script
   src="{{ 'search-page-input.js' | asset_url }}"
@@ -8,8 +6,8 @@
   type="module"
 ></script>
 
-{% if block_settings.inherit_color_scheme == false %}
-  {% assign color_scheme = block_settings.color_scheme | prepend: ' color-' %}
+{% if block.settings.inherit_color_scheme == false %}
+  {% assign color_scheme = block.settings.color_scheme | prepend: ' color-' %}
 {% endif %}
 
 <form
@@ -19,7 +17,7 @@
   class="search-page-input__parent"
 >
   <search-page-input-component
-    style="{% render 'size-style', settings: block_settings %}{% render 'spacing-style', settings: block_settings %}"
+    style="{% render 'size-style', settings: block.settings %}{% render 'spacing-style', settings: block.settings %}"
     {{ block.shopify_attributes }}
   >
     <label
@@ -89,7 +87,7 @@
   }
 
   .search-page-input::placeholder {
-    color: rgb(var(--color-input-text-rgb) / var(--opacity-subdued-text));
+    color: rgba(from var(--color-input-text) r g b / var(--opacity-subdued-text));
   }
 
   .search-page-input__parent {

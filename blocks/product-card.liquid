@@ -1,4 +1,4 @@
-
+{% # import schema from '../schemas/blocks/product-card.js' %}
 
 {% liquid
   assign product = block.settings.product
@@ -14,36 +14,18 @@
 {
   "name": "t:names.product_card",
   "blocks": [
-    {
-      "type": "_product-card-group"
-    },
-    {
-      "type": "text"
-    },
-    {
-      "type": "image"
-    },
-    {
-      "type": "price"
-    },
-    {
-      "type": "review"
-    },
-    {
-      "type": "swatches"
-    },
-    {
-      "type": "_product-card-gallery"
-    },
-    {
-      "type": "product-title"
-    },
-    {
-      "type": "custom-liquid"
-    },
-    {
-      "type": "@app"
-    }
+
+    { "type": "_product-card-group" },
+        { "type": "button" },
+         { "type": "_divider" },
+    { "type": "text" },
+    { "type": "image" },
+    { "type": "price" },
+    { "type": "review" },
+    { "type": "swatches" },
+    { "type": "_product-card-gallery" },
+    { "type": "product-title" },
+    { "type": "@app" }
   ],
   "tag": null,
   "settings": [
@@ -52,6 +34,7 @@
       "id": "product",
       "label": "t:settings.product"
     },
+        
     {
       "type": "range",
       "id": "product_card_gap",
@@ -84,14 +67,8 @@
       "id": "border",
       "label": "t:settings.style",
       "options": [
-        {
-          "value": "none",
-          "label": "t:options.none"
-        },
-        {
-          "value": "solid",
-          "label": "t:options.solid"
-        }
+        { "value": "none", "label": "t:options.none" },
+        { "value": "solid", "label": "t:options.solid" }
       ],
       "default": "none"
     },
@@ -175,72 +152,26 @@
     {
       "name": "t:names.product_card",
       "category": "t:categories.product",
-      "settings": {
-        "product_card_gap": 4
-      },
       "blocks": {
-        "product-card-gallery": {
-          "type": "_product-card-gallery",
-          "settings": {
-            "image_ratio": "adapt",
-            "border": "none",
-            "border_width": 1,
-            "border_opacity": 100,
-            "border_radius": 0,
-            "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          }
+
+        "product-card-gallery": { "type": "_product-card-gallery" },
+        "group": {
+          "type": "_product-card-group",
+          "settings": { "content_direction": "column" },
+          "blocks": {
+"button": { "type": "button"},
+"divider": { "type": "_divider"},
+            "product_title": {
+              "type": "product-title",
+              "settings": { "width": "100%", "type_preset": "h5" }
+            },
+            "price": { "type": "price" }
+          },
+          "block_order": ["product_title", "price"]
         },
-        "product_title": {
-          "type": "product-title",
-          "name": "t:names.product_title",
-          "settings": {
-            "width": "fit-content",
-            "max_width": "normal",
-            "alignment": "left",
-            "type_preset": "rte",
-            "font": "var(--font-body--family)",
-            "font_size": "1rem",
-            "line_height": "normal",
-            "letter_spacing": "normal",
-            "case": "none",
-            "wrap": "pretty",
-            "color": "var(--color-foreground)",
-            "background": false,
-            "background_color": "#00000026",
-            "corner_radius": 0,
-            "padding-block-start": 4,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          }
-        },
-        "price": {
-          "type": "price",
-          "name": "t:names.product_price",
-          "settings": {
-            "show_sale_price_first": true,
-            "show_installments": false,
-            "show_tax_info": false,
-            "type_preset": "h6",
-            "width": "100%",
-            "alignment": "left",
-            "font": "var(--font-body--family)",
-            "font_size": "1rem",
-            "line_height": "normal",
-            "letter_spacing": "normal",
-            "case": "none",
-            "color": "var(--color-foreground)",
-            "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          }
-        }
+        
       },
-      "block_order": ["product-card-gallery", "product_title", "price"]
+      "block_order": ["button", "product-card-gallery", "group"]
     }
   ]
 }

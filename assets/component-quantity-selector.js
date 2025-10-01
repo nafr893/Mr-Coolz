@@ -19,7 +19,7 @@ class QuantitySelectorComponent extends Component {
 
     event.preventDefault();
     this.refs.quantityInput.stepUp();
-    this.#onQuantityChange();
+    this.#onQuantityChange(event);
   }
 
   /**
@@ -31,7 +31,7 @@ class QuantitySelectorComponent extends Component {
 
     event.preventDefault();
     this.refs.quantityInput.stepDown();
-    this.#onQuantityChange();
+    this.#onQuantityChange(event);
   }
 
   /**
@@ -56,13 +56,14 @@ class QuantitySelectorComponent extends Component {
     if (event.target instanceof HTMLInputElement) {
       this.refs.quantityInput.value = event.target.value;
     }
-    this.#onQuantityChange();
+    this.#onQuantityChange(event);
   }
 
   /**
    * Handles the quantity change event.
+   * @param {Event} event - The event.
    */
-  #onQuantityChange() {
+  #onQuantityChange(event) {
     const { quantityInput } = this.refs;
 
     this.#checkQuantityRules();

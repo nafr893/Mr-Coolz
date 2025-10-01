@@ -4,6 +4,7 @@ import { ThemeEvents, CartAddEvent, CartErrorEvent, VariantUpdateEvent } from '@
 import { cartPerformance } from '@theme/performance';
 import { morph } from '@theme/morph';
 
+
 export const ADD_TO_CART_TEXT_ANIMATION_DURATION = 2000;
 
 /**
@@ -55,8 +56,6 @@ export class AddToCartComponent extends Component {
    * @param {MouseEvent & {target: HTMLElement}} event - The click event.
    */
   handleClick(event) {
-    if (!this.#checkFormValidity()) return;
-
     this.animateAddToCart();
 
     if (!event.target.closest('.quick-add-modal')) this.#animateFlyToCart();
@@ -73,6 +72,7 @@ export class AddToCartComponent extends Component {
   /**
    * Animates the fly to cart animation.
    */
+
   #animateFlyToCart() {
     const { addToCartButton } = this.refs;
     const cartIcon = document.querySelector('.header-actions__cart-icon');
@@ -89,6 +89,7 @@ export class AddToCartComponent extends Component {
 
     document.body.appendChild(flyToCartElement);
   }
+
 
   /**
    * Animates the add to cart button.
@@ -108,42 +109,6 @@ export class AddToCartComponent extends Component {
         this.refs.addToCartButton.classList.remove('atc-added');
       }, 10);
     }, ADD_TO_CART_TEXT_ANIMATION_DURATION);
-  }
-
-  /**
-   * Checks if the form is valid when the user adds an item to cart.
-   * Currently only checks the gift card recipient form.
-   * @returns {boolean} - True if the form is valid, false otherwise.
-   */
-  #checkFormValidity() {
-    const form = this.closest('form');
-    if (!form) return true;
-
-    const allInputs = Array.from(form.querySelectorAll('input, select, textarea')).filter((input) =>
-      input.id.includes('Recipient')
-    );
-    let allInputsValid = true;
-    for (const input of allInputs) {
-      if (
-        !(
-          input instanceof HTMLInputElement ||
-          input instanceof HTMLSelectElement ||
-          input instanceof HTMLTextAreaElement
-        )
-      ) {
-        continue;
-      }
-
-      // Skip disabled inputs
-      if (input.disabled) continue;
-
-      // Check validity on all input elements
-      if (!input.checkValidity()) {
-        allInputsValid = false;
-        break;
-      }
-    }
-    return allInputsValid;
   }
 }
 
@@ -228,9 +193,7 @@ class ProductFormComponent extends Component {
       .then((response) => response.json())
       .then((response) => {
         if (response.status) {
-          this.dispatchEvent(
-            new CartErrorEvent(form.getAttribute('id') || '', response.message, response.description, response.errors)
-          );
+          window.dispatchEvent(new CartErrorEvent(this.id, response.message));
 
           if (!addToCartTextError) return;
           addToCartTextError.classList.remove('hidden');

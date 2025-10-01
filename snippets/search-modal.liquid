@@ -3,6 +3,28 @@
   type="module"
 ></script>
 
+<script>
+  // Adjust search modal position based on scroll for site banner
+  function updateSearchModalMargin() {
+    const scrolled = window.scrollY > 0;
+    const searchModal = document.querySelector('.search-modal__content');
+    
+    if (searchModal) {
+      if (scrolled) {
+        searchModal.style.setProperty('--modal-scroll-offset', '-5dvh');
+      } else {
+        searchModal.style.setProperty('--modal-scroll-offset', '0dvh');
+      }
+    }
+  }
+
+  // Update on scroll
+  window.addEventListener('scroll', updateSearchModalMargin);
+  
+  // Update on page load
+  document.addEventListener('DOMContentLoaded', updateSearchModalMargin);
+</script>
+
 <dialog-component
   id="search-modal"
   class="search-modal"
@@ -38,7 +60,8 @@
 
   .search-modal__content {
     /* Approx set the top so when the content is at max height, the modal is centered */
-    --modal-top-margin: calc(50dvh - var(--modal-max-height) / 2 - 2rem);
+    --modal-scroll-offset: 0dvh;
+    --modal-top-margin: calc(50dvh - var(--modal-max-height) / 2 - 2rem + var(--modal-scroll-offset));
     --modal-width: 66dvw;
 
     padding: 0;
@@ -62,6 +85,11 @@
     animation: search-element-slide-in-bottom 300ms var(--ease-out-quad) forwards;
     border-radius: var(--search-border-radius);
     box-shadow: var(--shadow-popover);
+width: 100dvw;
+margin-right: 0; 
+margin-left: 0; 
+overflow: visible;
+
 
     @media screen and (max-width: 749px) {
       border-radius: 0;

@@ -1,4 +1,4 @@
-
+{% # import schema from '../schemas/sections/main-collection-list.js' %}
 
 {% liquid
   assign section_collections = collections
@@ -40,6 +40,9 @@
     section-resource-list
     spacing-style
     gap-style
+    {% if section_collections == blank and request.design_mode == false %}
+      in-onboarding-state
+    {% endif %}
   "
   style="
     {% render 'spacing-style', settings: section.settings %}

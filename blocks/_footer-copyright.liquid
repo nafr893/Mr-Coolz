@@ -1,20 +1,20 @@
+{% # import schema from '../schemas/blocks/_footer-copyright.js' %}
 
-{% assign block_settings = block.settings %}
 <div
   class="
     footer-utilities__group-copyright
     custom-typography
-    {% if block_settings.font_size != "" %}custom-font-size{% endif %}
+    {% if block.settings.font_size != "" %}custom-font-size{% endif %}
   "
-  style="{% render 'typography-style', preset: 'custom', settings: block_settings %}"
+  style="{% render 'typography-style', preset: 'custom', settings: block.settings %}"
   {{ block.shopify_attributes }}
 >
   <span class="footer-utilities__text">
     &copy; {{ 'now' | date: '%Y' }}
     {{ shop.name | link_to: routes.root_url -}}
-    {%- if block_settings.show_powered_by -%}
-      , {{ powered_by_link }}
-    {%- endif -%}
+    , 
+   <!-- {{ powered_by_link }} -->
+     <a href="https://fanplexgraphics.com"> Site By Fanplex </a> 
   </span>
 </div>
 
@@ -24,14 +24,8 @@
   "tag": null,
   "settings": [
     {
-      "type": "checkbox",
-      "id": "show_powered_by",
-      "label": "t:settings.show_powered_by_shopify",
-      "default": true
-    },
-    {
       "type": "paragraph",
-      "content": "t:content.manage_store_name"
+      "content": "t:content.copyright_info"
     },
     {
       "type": "select",

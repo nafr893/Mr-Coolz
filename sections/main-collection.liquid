@@ -1,9 +1,19 @@
+{% # import schema from '../schemas/sections/main-collection' %}
 
+{% liquid
+  # Onboarding: When no products are available, we show placeholder items
+  assign products = ''
+  if request.design_mode and shop.products_count == 0
+    for i in (1..16)
+      assign products = products | append: ' ,'
+    endfor
+    assign products = products | split: ','
+  endif
+%}
 
 <script
   src="{{ 'results-list.js' | asset_url }}"
   type="module"
-  fetchpriority="low"
 ></script>
 
 {% javascript %}
@@ -41,9 +51,27 @@
       results_size: collection.products_count
     %}
 
-    {% paginate collection.products by 24 %}
-      {% capture children %}
-        {% for product in collection.products %}
+    {% if request.design_mode and shop.products_count == 0 %}
+      {% paginate products by 24 %}
+        {% capture children %}
+          {% for product in products %}
+            <li
+              class="product-grid__item product-grid__item--{{ forloop.index0 }}"
+              data-page="{{ paginate.current_page }}"
+              data-product-id="{{ product.id }}"
+              data-view-transition-id="{{ product.id }}"
+              ref="cards[]"
+            >
+              {% content_for 'block', type: '_product-card', id: 'product-card', closest.product: product %}
+            </li>
+          {% endfor %}
+        {% endcapture %}
+        {% render 'product-grid', section: section, children: children, products: products, paginate: paginate %}
+      {% endpaginate %}
+    {% else %}
+      {% paginate collection.products by 24 %}
+        {% capture children %}
+          {% for product in collection.products %}
           <li
             id="{{ section.id }}-{{ product.id }}"
             class="product-grid__item product-grid__item--{{ forloop.index0 }}"
@@ -56,22 +84,21 @@
             {% # theme-check-enable %}
           </li>
         {% endfor %}
-      {% endcapture %}
-
-      {% render 'product-grid',
-        section: section,
-        children: children,
-        products: collection.products,
-        paginate: paginate
-      %}
-    {% endpaginate %}
+        {% endcapture %}
+        {% render 'product-grid',
+          section: section,
+          children: children,
+          products: collection.products,
+          paginate: paginate
+        %}
+      {% endpaginate %}
+    {% endif %}
   </div>
 </results-list>
 
 {% stylesheet %}
   .main-collection-grid {
     grid-column: var(--grid-column--mobile);
-
     @media screen and (min-width: 750px) {
       grid-column: var(--grid-column--desktop);
     }
@@ -116,7 +143,8 @@
 
   :is(.collection-wrapper--full-width, .collection-wrapper--full-width-on-mobile)
     [product-grid-view='default']
-    .product-grid__card {
+    .product-grid__item
+    .group-block {
     @media screen and (max-width: 749px) {
       padding-inline-start: max(var(--padding-xs), var(--padding-inline-start));
       padding-inline-end: max(var(--padding-xs), var(--padding-inline-end));
@@ -125,19 +153,11 @@
 
   :is(.collection-wrapper--full-width, .collection-wrapper--full-width-on-mobile)
     [product-grid-view='mobile-single']
-    .product-grid__card {
+    .product-grid__item
+    .group-block {
     @media screen and (max-width: 749px) {
       padding-inline-start: max(var(--padding-xs), var(--padding-inline-start));
       padding-inline-end: max(var(--padding-xs), var(--padding-inline-end));
-    }
-  }
-
-  /* Make product media go edge-to-edge by using negative margins */
-  :is(.collection-wrapper--full-width) .card-gallery,
-  :is(.collection-wrapper--full-width-on-mobile) .card-gallery {
-    @media screen and (max-width: 749px) {
-      margin-inline-start: calc(-1 * max(var(--padding-xs), var(--padding-inline-start)));
-      margin-inline-end: calc(-1 * max(var(--padding-xs), var(--padding-inline-end)));
     }
   }
 {% endstylesheet %}

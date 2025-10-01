@@ -1,21 +1,39 @@
+{% # import schema from '../schemas/blocks/_product-details' %}
 
 
-{%- assign block_settings = block.settings -%}
+
 
 <div
   id="ProductInformation-{{ section.id }}"
   class="
     product-details
-    {% if block_settings.sticky_details_desktop %} sticky-content--desktop{% endif %}
-    {% if block_settings.height == 'fill' -%} full-height--desktop{% endif -%}
+    {% if block.settings.sticky_details_desktop %} sticky-content--desktop{% endif %}
+    {% if block.settings.height == 'fill' -%} full-height--desktop{% endif -%}
   "
-  style="--details-position: {{ block_settings.details_position }};"
+  style="--details-position: {{ block.settings.details_position }};"
   data-testid="product-information-details"
   {% if settings.transition_to_main_product %}
     data-view-transition-type="product-details"
   {% endif %}
 >
+
+{% for block in section.blocks %}
+  {% case block.type %}
+    {% when 'breadcrumbs' %}
+      {% render 'breadcrumbs', collection: collection %}
+    {% else %}
+      {%- render block.type, block: block -%}
+  {% endcase %}
+{% endfor %}
+
+
   {% capture children %}
+    <div class="desktop-breadcrumbs-title hidden--mobile">
+{% render 'breadcrumbs', collection: collection %}
+</div>
+
+
+
     <div class="view-product-title">
       <a
         href="{{ product.selected_or_first_available_variant.url }}"
@@ -27,10 +45,8 @@
     {% content_for 'blocks' %}
   {% endcapture %}
 
-  {% render 'group', children: children, settings: block_settings, shopify_attributes: block.shopify_attributes %}
-
-
-  </div>
+  {% render 'group', children: children, settings: block.settings, shopify_attributes: block.shopify_attributes %}
+</div>
 
 {% stylesheet %}
   /* Clear padding on mobile, if not full-width */
@@ -51,14 +67,6 @@
     justify-content: center;
   }
 
-    @media (min-width: 480px) {
-  .product-details {
-      /* this is a temporary width settingh for details */ 
-    width: 50dvw;
-  }
-    }
-
-
   @media screen and (min-width: 750px) {
     .product-details > .group-block {
       height: min-content;
@@ -75,6 +83,8 @@
     }
   }
 {% endstylesheet %}
+
+
 
 {% schema %}
 {
@@ -136,11 +146,7 @@
     },
     {
       "type": "product-inventory"
-    },
-    {
-      "type": "add_ons"
     }
-
   ],
   "tag": null,
   "settings": [
@@ -722,3 +728,5 @@
   ]
 }
 {% endschema %}
+
+

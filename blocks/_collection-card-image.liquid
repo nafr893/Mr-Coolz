@@ -1,4 +1,4 @@
-
+{% # import schema from '../schemas/blocks/_collection-card-image' %}
 
 {%- doc -%}
   Display an image of a collection inside a collection card.
@@ -12,7 +12,6 @@
 
 {% liquid
   assign collection = closest.collection
-  assign block_settings = block.settings
 -%}
 
 {% liquid
@@ -23,7 +22,7 @@
 
   assign ratio = 1
 
-  case block_settings.image_ratio
+  case block.settings.image_ratio
     when 'landscape'
       assign ratio = '16 / 9'
     when 'portrait'
@@ -54,7 +53,7 @@
       assign sizes = lazy_sizes
   endcase
 
-  assign widths = '240, 352, 832, 1200, 1600, 1920, 2560, 3840'
+  assign widths = '300, 450, 600, 750, 900, 1050, 1200, 1350, 1500, 1650, 1800, 1950, 2000, 2500, 3000, 3500, 4000, 5000'
 %}
 
 {% style %}
@@ -69,21 +68,21 @@
       image-block
       collection-card__image
       border-style
-      {% if block_settings.inherit_color_scheme == false %} color-{{ block_settings.color_scheme }}{% endif %}
+      {% if block.settings.inherit_color_scheme == false %} color-{{ block.settings.color_scheme }}{% endif %}
     "
-    style="{% render 'border-override', settings: block_settings %}"
+    style="{% render 'border-override', settings: block.settings %}"
   >
-    {%- if block_settings.toggle_overlay -%}
-      {% render 'overlay', settings: block_settings %}
+    {%- if block.settings.toggle_overlay -%}
+      {% render 'overlay', settings: block.settings %}
     {%- endif -%}
 
     {{
       image_source
       | image_url: width: 3840
       | image_tag:
-        width: block_settings.image.width,
+        width: block.settings.image.width,
         widths: widths,
-        height: block_settings.image.height,
+        height: block.settings.image.height,
         class: 'image-block__image',
         sizes: sizes,
         loading: loading
@@ -96,19 +95,14 @@
       collection-card__image
       collection-card__image--placeholder
       border-style
-      {% if block_settings.inherit_color_scheme == false %} color-{{ block_settings.color_scheme }}{% endif %}
+      {% if block.settings.inherit_color_scheme == false %} color-{{ block.settings.color_scheme }}{% endif %}
     "
-    style="{% render 'border-override', settings: block_settings %}"
+    style="{% render 'border-override', settings: block.settings %}"
   >
-    {% liquid
-      # Simple rotation through collection apparel placeholders (1-4)
-      # Extract index from parent block ID (e.g., "collection-card-3" -> "3")
-      assign block_parts = parent_block_id | split: '-'
-      assign collection_index = block_parts.last | default: 0
-      assign variant = collection_index | modulo: 4 | plus: 1
-      assign placeholder_name = 'collection-apparel-' | append: variant
-    %}
-    {{ placeholder_name | placeholder_svg_tag }}
+    <placeholder-image
+      data-block-id="{{ block.id }}"
+      data-type="general"
+    ></placeholder-image>
   </div>
 {% endif %}
 

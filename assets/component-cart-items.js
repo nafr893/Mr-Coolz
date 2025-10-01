@@ -81,24 +81,16 @@ class CartItemsComponent extends Component {
 
     if (!cartItemRowToRemove) return;
 
-    const rowsToRemove = [
-      cartItemRowToRemove,
-      // Get all nested lines of the row to remove
-      ...this.refs.cartItemRows.filter((row) => row.dataset.parentKey === cartItemRowToRemove.dataset.key),
-    ];
+    const remove = () => cartItemRowToRemove.remove();
+
+    if (prefersReducedMotion()) return remove();
 
     // Add class to the row to trigger the animation
-    rowsToRemove.forEach((row) => {
-      const remove = () => row.remove();
+    cartItemRowToRemove.style.setProperty('--row-height', `${cartItemRowToRemove.clientHeight}px`);
+    cartItemRowToRemove.classList.add('removing');
 
-      if (prefersReducedMotion()) return remove();
-
-      row.style.setProperty('--row-height', `${row.clientHeight}px`);
-      row.classList.add('removing');
-
-      // Remove the row after the animation ends
-      onAnimationEnd(row, remove);
-    });
+    // Remove the row after the animation ends
+    onAnimationEnd(cartItemRowToRemove, remove);
   }
 
   /**

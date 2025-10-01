@@ -25,7 +25,9 @@
     {% render 'slideshow-slide'
       index : forloop.index0,
       children : item,
-      class : 'resource-list__slide'
+      class : 'resource-list__slide',
+      ref : 'slides[]',
+      aria_hidden : false
     %}
   {% endfor %}
 {% endcapture %}

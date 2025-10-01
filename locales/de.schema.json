@@ -37,8 +37,8 @@
     "secondary_button": "Sekundäre Schaltfläche",
     "popovers": "Pop-overs",
     "marquee": "Marquee",
-    "products_carousel": "Vorgestellte Kollektion: Karussell",
-    "products_grid": "Vorgestellte Kollektion: Raster",
+    "products_carousel": "Produktliste: Karussell",
+    "products_grid": "Produktliste: Raster",
     "pull_quote": "Zitat",
     "contact_form": "Kontaktformular",
     "featured_product": "Produkthighlight",
@@ -121,7 +121,7 @@
     "utilities": "Hilfsprogramme",
     "video_section": "Video",
     "spacer": "Abstandhalter",
-    "product_list": "Vorgestellte Kollektion",
+    "product_list": "Produktliste",
     "jumbo_text": "Text im Großformat",
     "search_input": "Sucheingabe",
     "search_results": "Suchergebnisse",
@@ -153,7 +153,7 @@
     "page_layout": "Seitenlayout",
     "policy_list": "Links zu Richtlinien",
     "prices": "Preise",
-    "products_editorial": "Vorgestellte Kollektion: Redaktionell",
+    "products_editorial": "Produktliste: Editorial",
     "social_link": "Social-Media-Link",
     "split_showcase": "Split Showcase",
     "variant_pickers": "Variantenauswahl",
@@ -162,8 +162,7 @@
     "product_list_button": "Schaltfläche „Alle anzeigen“",
     "product_inventory": "Produktinventar",
     "pills": "Kapseln",
-    "description": "Beschreibung",
-    "featured_image": "Feature-Bild"
+    "description": "Beschreibung"
   },
   "settings": {
     "autoplay": "Automatische Wiedergabe",
@@ -490,11 +489,7 @@
     "transition_to_main_product": "Übergang von Produktkarte zu Produktseite",
     "show_second_image_on_hover": "Hover-Effekt mit zweitem Bild",
     "media": "Medien",
-    "product_card_carousel": "Karussell anzeigen",
-    "media_fit": "Medienanpassung",
-    "scroll_speed": "Zeit bis zur nächsten Ankündigung",
-    "show_powered_by_shopify": "\"Powered by Shopify\" anzeigen",
-    "gift_card_form": "Gutscheinformular"
+    "product_card_carousel": "Karussell anzeigen"
   },
   "options": {
     "adapt_to_image": "An Bild anpassen",
@@ -867,10 +862,7 @@
     "resource_reference_product_review": "Zeigt Bewertungen aus übergeordnetem Produkt an",
     "resource_reference_product_swatches": "Zeigt Farbfelder aus übergeordnetem Produkt an",
     "resource_reference_product_title": "Zeigt Titel aus übergeordnetem Produkt an",
-    "resource_reference_product_variant_picker": "Zeigt Varianten aus übergeordnetem Produkt an",
-    "product_media": "Produktmedien",
-    "section_link": "Abschnitts-Link",
-    "gift_card_form_description": "Kunden können Gutscheine per E-Mail mit einer persönlichen Nachricht an den Empfänger senden. [Mehr Informationen](https://help.shopify.com/manual/products/gift-card-products)"
+    "resource_reference_product_variant_picker": "Zeigt Varianten aus übergeordnetem Produkt an"
   },
   "html_defaults": {
     "share_information_about_your": "<p>Teile Infos über deine Marke mit deinen Kunden. Beschreibe ein Produkt, kündige etwas an oder heiße Kunden willkommen.</p>"
@@ -900,8 +892,8 @@
     "edit_presets_in_theme_settings": "Bearbeite Voreinstellungen in den [Theme-Einstellungen](/editor?context=theme&category=typography)",
     "enable_filtering_info": "Passe Filter an mit der [Search & Discovery-App](https://help.shopify.com/manual/online-store/search-and-discovery/filters)",
     "grid_layout_on_mobile": "Das Raster-Layout wird für die mobile Ansicht verwendet",
-    "manage_countries_regions": "[Länder/Regionen verwalten](/admin/settings/markets)",
-    "manage_languages": "[Sprachen verwalten](/admin/settings/languages)",
+    "manage_countries_regions": "[Manage countries/regions](/admin/settings/markets)",
+    "manage_languages": "[Manage languages](/admin/settings/languages)",
     "transparent_background": "Überprüfe alle Vorlagen, in denen ein transparenter Hintergrund verwendet wird, auf ihre Lesbarkeit",
     "logo_font": "Gilt nur, wenn kein Logo ausgewählt wurde",
     "aspect_ratio_adjusted": "In einigen Layouts angepasst",
@@ -912,7 +904,7 @@
     "pills_usage": "Für angewandte Filter, Rabattcodes und Suchvorschläge"
   },
   "categories": {
-    "product_list": "Vorgestellte Kollektion",
+    "product_list": "Produktliste",
     "basic": "Basic",
     "collection": "Kollektion",
     "collection_list": "Kollektionsliste",

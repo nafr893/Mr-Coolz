@@ -1,5 +1,3 @@
-/* eslint-disable no-redeclare */
-
 /**
  * @fileoverview
  * - Using the 'QRCode for Javascript library'
