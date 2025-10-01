@@ -1,4 +1,4 @@
-{% # import schema from '../schemas/blocks/group' %}
+
 
 {% capture children %}
   {% content_for 'blocks' %}
@@ -396,6 +396,12 @@
       "step": 1,
       "unit": "px",
       "default": 0
+    },
+    {
+      "type": "text",
+      "id": "placeholder",
+      "label": "t:settings.image",
+      "visible_if": "{{ false }}"
     },
     {
       "type": "checkbox",

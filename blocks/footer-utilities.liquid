@@ -1,4 +1,4 @@
-{% # import schema from '../schemas/blocks/footer-utilities.js' %}
+
 
 <div
   class="footer-utilities spacing-style"
@@ -10,23 +10,10 @@
     {% content_for 'block', type: '_footer-policy-list', id: 'policy_list' %}
   </div>
 
-  <div class="footer-logo">
-    {% content_for 'block', type: 'logo', id: 'footer_logo' %}
-  </div>
-
-  <div class="footer-information">
-    {% content_for 'block', type: 'menu', id: 'footer_information' %}
-    </div>
-
-<!-- comment out social icons to have even columns
-
   <div class="footer-utilities__group footer-utilities__group--right">
     {% content_for 'block', type: '_footer-social-icons', id: 'social_icons' %}
   </div>
-
-  -->
-
-  </div>
+</div>
 
 {% stylesheet %}
   .footer-utilities {
@@ -38,9 +25,6 @@
     text-wrap: nowrap;
     border-top: var(--border-width) solid var(--color-border);
     color: var(--color-foreground-muted);
-    /* footer information padding settings can and should be altered to fit */
-    padding-right: 50px;
-    padding-left: 50px;
 
     @media screen and (min-width: 750px) {
       flex-direction: row;
@@ -50,53 +34,6 @@
       text-align: left;
     }
   }
-
-/* styles for footer information menu */ 
-  @media (min-width: 480px) {
-.footer-information { 
-ul.list-unstyled {
-  display: flex; 
-  flex-direction: row; 
-  flex-wrap: wrap;
- gap: 3rem;
- 
- 
-li.menu__item {
-  margin: 0px; 
-  align-content: center;
-}
-
-}
-}
-
-}
-
-/* mobile settings */
-@media (max-width: 480px) {
-.footer-information { 
-ul.list-unstyled {
-display: flex; 
-flex-direction: row; 
-gap: 1rem;
- 
- 
-li.menu__item {
-  margin: 0px; 
-  text-align: center;
-  align-content: center;
-}
-
-}
-}
-
-}
-
-
-.footer-logo {
-  justify-content: center; 
-  display: flex; 
-}
-
 
   .footer-utilities a {
     color: var(--color-foreground-muted);

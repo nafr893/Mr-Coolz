@@ -1,4 +1,4 @@
-{% # import schema from '../schemas/sections/collection-list.js' %}
+
 
 {% liquid
   if section.settings.collection_list != blank
@@ -36,6 +36,7 @@
         echo '--resource-list-column-gap-desktop: ' | append: section.settings.columns_gap | append: 'px;'
         echo '--column-count: ' | append: section.settings.columns | append: ';'
         echo '--column-count-mobile: 1;'
+        echo '--mobile-card-size: ' | append: section.settings.mobile_card_size | append: ';'
       endcapture
   endcase
 %}
@@ -50,9 +51,6 @@
     section-resource-list
     spacing-style
     gap-style
-    {% if section.settings.collection_list == blank and request.design_mode == false %}
-      in-onboarding-state
-    {% endif %}
   "
   style="
     {% render 'spacing-style', settings: section.settings %}
@@ -140,6 +138,7 @@
         --resource-list-column-gap-desktop: {{ mobile_carousel_gap }}px;
         --column-count: {{ section.settings.columns }};
         --column-count-mobile: 1;
+        --mobile-card-size: {{ section.settings.mobile_card_size }};
       "
     >
       {% render 'resource-list-carousel',
@@ -259,6 +258,23 @@
       ],
       "default": "2",
       "visible_if": "{{ section.settings.layout_type == 'grid' and section.settings.carousel_on_mobile == false }}"
+    },
+    {
+      "type": "select",
+      "id": "mobile_card_size",
+      "label": "t:settings.mobile_columns",
+      "options": [
+        {
+          "value": "60cqw",
+          "label": "t:options.one_number"
+        },
+        {
+          "value": "44cqw",
+          "label": "t:options.two_number"
+        }
+      ],
+      "default": "60cqw",
+      "visible_if": "{{ section.settings.layout_type == 'carousel' or section.settings.carousel_on_mobile == true }}"
     },
     {
       "type": "range",
@@ -507,7 +523,10 @@
             "collection-card-image": {
               "type": "_collection-card-image",
               "name": "t:names.collection_card_image",
-              "static": true
+              "static": true,
+              "settings": {
+                "image_ratio": "adapt"
+              }
             },
             "collection-title": {
               "type": "collection-title",
@@ -616,7 +635,10 @@
             "collection-card-image": {
               "type": "_collection-card-image",
               "name": "t:names.collection_card_image",
-              "static": true
+              "static": true,
+              "settings": {
+                "image_ratio": "adapt"
+              }
             },
             "collection-title": {
               "type": "collection-title",
@@ -741,7 +763,10 @@
             "collection-card-image": {
               "type": "_collection-card-image",
               "name": "t:names.collection_card_image",
-              "static": true
+              "static": true,
+              "settings": {
+                "image_ratio": "adapt"
+              }
             },
             "collection-title": {
               "type": "collection-title",
@@ -904,7 +929,7 @@
               "name": "t:names.collection_card_image",
               "static": true,
               "settings": {
-                "image_ratio": "portrait",
+                "image_ratio": "adapt",
                 "toggle_overlay": false,
                 "overlay_color": "#00000026",
                 "overlay_style": "solid",

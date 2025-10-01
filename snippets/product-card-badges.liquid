@@ -29,19 +29,14 @@
       {%- endif -%}
     </div>
   {%- endif -%}
-
-  {%- if product.metafields.custom.is_best_seller == true or product.metafields.custom.is_best_seller == 'true' -%}
-    <div class="product-badges__badge product-badges__badge--rectangle color-{{ settings.badge_best_seller_color_scheme }}">
-      {{ 'content.product_badge_best_seller' | t }}
-    </div>
-  {%- endif -%}
 </div>
 
 {% stylesheet %}
   .product-badges {
+    --badge-inset: max(var(--padding-xs), calc((var(--border-radius) + var(--padding-xs)) * (1 - cos(45deg))));
+
     position: absolute;
     z-index: var(--layer-flat);
-    --badge-inset: max(var(--padding-xs), calc((var(--border-radius) + var(--padding-xs)) * (1 - cos(45deg))));
   }
 
   .product-badges--bottom-left {

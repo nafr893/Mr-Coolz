@@ -61,7 +61,8 @@
     "decrease_quantity": "Scade cantitatea",
     "increase_quantity": "Crește cantitatea",
     "quantity": "Cantitate",
-    "rating": "Evaluarea acestui produs este de {{ rating }} din 5"
+    "rating": "Evaluarea acestui produs este de {{ rating }} din 5",
+    "nested_product": "{{ product_title }} pentru {{ parent_title }}"
   },
   "actions": {
     "add_to_cart": "Adaugă în coș",
@@ -217,7 +218,18 @@
       "one": "{{ count }} rămas",
       "other": "{{ count }} rămas",
       "few": "{{ count }} rămas"
-    }
+    },
+    "recipient_form_send_to": "Destinatar",
+    "recipient_form_email_label": "Adresa de e-mail a destinatarului",
+    "recipient_form_email_label_my_email": "Adresa mea de e-mail",
+    "recipient_form_email_label_optional_for_no_js_behavior": "Adresa de e-mail a destinatarului (opțional)",
+    "recipient_form_email_address": "Adresa de e-mail a destinatarului",
+    "recipient_form_name_label": "Numele destinatarului (opțional)",
+    "recipient_form_message_label": "Mesaj (opțional)",
+    "recipient_form_message": "Mesaj (opțional)",
+    "recipient_form_characters_used": "{{ used_chars }}/{{ max_chars }} caractere folosite",
+    "recipient_form_send_on": "AAAA-LL-ZZ",
+    "recipient_form_send_on_label": "Data trimiterii (opțional)"
   },
   "gift_cards": {
     "issued": {

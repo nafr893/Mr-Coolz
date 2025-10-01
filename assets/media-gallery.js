@@ -37,7 +37,7 @@ export class MediaGallery extends Component {
    *
    * @param {VariantUpdateEvent} event - The variant update event.
    */
-  #handleVariantUpdate = (event) => {debugger;
+  #handleVariantUpdate = (event) => {
     const source = event.detail.data.html;
 
     if (!source) return;

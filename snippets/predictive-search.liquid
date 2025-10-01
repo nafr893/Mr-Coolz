@@ -14,7 +14,7 @@
 <script
   src="{{ 'predictive-search.js' | asset_url }}"
   type="module"
-  defer
+  fetchpriority="low"
 ></script>
 
 <predictive-search-component
@@ -38,8 +38,6 @@
     <div
       class="predictive-search-form__header"
     >
-
-
       <div class="predictive-search-form__header-inner">
         <label
           for="{{ input_id | default: 'Search' }}"
@@ -99,12 +97,6 @@
         </span>
       </button>
     </div>
-
-
-    <div class="predictive-search-categories">
-      {% render 'predictive-search-categories' %}
-    </div>
-
 
     <div class="predictive-search-form__content-wrapper">
       <div

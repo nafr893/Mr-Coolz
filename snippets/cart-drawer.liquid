@@ -11,6 +11,7 @@
 <script
   src="{{ 'cart-drawer.js' | asset_url }}"
   type="module"
+  fetchpriority="low"
 ></script>
 
 <cart-drawer-component
@@ -43,7 +44,7 @@
             <button
               ref="closeButton"
               on:click="cart-drawer-component/close"
-              class="button cart-drawer__close-button button-unstyled"
+              class="button close-button cart-drawer__close-button button-unstyled"
               aria-label="{{ 'actions.close_dialog' | t }}"
             >
               <span class="svg-wrapper">
@@ -69,17 +70,15 @@
             class="cart-drawer__header"
             id="cart-drawer-header"
           >
-            <span class="cart-drawer__heading h5" style="text-transform: uppercase;">
-            
-           <!-- {{ 'content.cart_title' | t }} -->
-              {{ 'Your Cart' }}
+            <span class="cart-drawer__heading h3">
+              {{ 'content.cart_title' | t }}
               {% render 'cart-bubble' %}
             </span>
 
             <button
               ref="closeButton"
               on:click="cart-drawer-component/close"
-              class="button cart-drawer__close-button button-unstyled"
+              class="button close-button cart-drawer__close-button button-unstyled"
               aria-label="{{ 'actions.close_dialog' | t }}"
             >
               <span class="svg-wrapper">
@@ -88,10 +87,9 @@
             </button>
           </div>
 
+         
 {% render 'cart-progress-bar' %}
-<div class="wholesale-banner">
-<p class="wholesale-message"> Sign up for a <a class="wholesale-link" href="https://atonalheadwear.com/pages/wholesale-registration-form"> wholesale account </a> for bulk discounts </p>
-</div>
+
 
 
           <div
@@ -134,7 +132,7 @@
 
   .cart-drawer__heading .cart-bubble[data-maintain-ratio] {
     aspect-ratio: 1;
-    min-width: 18px;
+    min-width: 26px;
   }
 
   .cart-drawer__header {
@@ -144,7 +142,6 @@
     justify-content: space-between;
     width: 100%;
     padding: var(--cart-drawer-padding);
-    padding-bottom: 0; 
     border-bottom: var(--style-border-width) solid none;
     position: sticky;
     top: 0;
@@ -176,34 +173,4 @@
     bottom: 0;
     z-index: 1;
   }
-
-.wholesale-banner {
-width: 100%; 
-
-padding-left: 20px;
-padding-right: 20px;
-border-radius: 2px; 
-padding-bottom: 10px; 
-}
-
-.wholesale-message {
-  padding: 6px 6px;
-  background-color: #161616;
-  border: 1px solid #eee;
-  border-radius: 4px;
-  text-align: center;
-  color: white; 
-  font-size: 12px; 
-}
-
-.wholesale-link {
-  font-weight: bold;
-  color: white; 
-  text-decoration: underline;
-}
-
-.wholesale-link:hover {
-color: white !important; 
-}
-
 {% endstylesheet %}
