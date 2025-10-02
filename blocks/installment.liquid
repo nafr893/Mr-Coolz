@@ -1,0 +1,40 @@
+{% liquid
+  assign variant_price = product.selected_or_first_available_variant.price
+  assign installment_price = 0
+  if block.settings.installment_count > 0
+    assign installment_price = variant_price | divided_by: block.settings.installment_count
+  endif
+%}
+
+<div class="installments text-{{ block.settings.alignment }}">
+  <span class="installments__text">
+    or {{ block.settings.installment_count }} payments of {{ installment_price | money }}
+  </span>
+</div>
+
+{% schema %}
+{
+  "name": "Installment Price",
+  "target": "section",
+  "settings": [
+    {
+      "type": "number",
+      "id": "installment_count",
+      "label": "Number of installments",
+      "default": 4,
+      "min": 1
+    },
+    {
+      "type": "select",
+      "id": "alignment",
+      "label": "Text alignment",
+      "options": [
+        { "value": "left", "label": "Left" },
+        { "value": "center", "label": "Center" },
+        { "value": "right", "label": "Right" }
+      ],
+      "default": "left"
+    }
+  ]
+}
+{% endschema %}
