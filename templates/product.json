@@ -211,18 +211,6 @@
                 "group_BFzkRF"
               ]
             },
-            "divider_VJhene": {
-              "type": "_divider",
-              "name": "t:names.divider",
-              "settings": {
-                "thickness": 1,
-                "corner_radius": "square",
-                "width_percent": 100,
-                "padding-block-start": 0,
-                "padding-block-end": 0
-              },
-              "blocks": {}
-            },
             "installment_wJJanx": {
               "type": "installment",
               "name": "Installments",
@@ -323,7 +311,6 @@
           },
           "block_order": [
             "group_icgrde",
-            "divider_VJhene",
             "installment_wJJanx",
             "variant_picker_R3rGDr",
             "buy_buttons_eYQEYi",
