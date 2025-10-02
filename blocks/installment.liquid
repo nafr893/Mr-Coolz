@@ -1,16 +1,20 @@
-{% liquid
-  assign variant_price = product.selected_or_first_available_variant.price
-  assign installment_price = 0
-  if block.settings.installment_count > 0
-    assign installment_price = variant_price | divided_by: block.settings.installment_count
-  endif
-%}
-
-<div class="installments text-{{ block.settings.alignment }}">
-  <span class="installments__text">
-    or {{ block.settings.installment_count }} payments of {{ installment_price | money }}
-  </span>
-</div>
+{% if product.selected_or_first_available_variant.selling_plan_allocations.size > 0 %}
+  {% assign installment = product.selected_or_first_available_variant.selling_plan_allocations[0].selling_plan %}
+  <div class="installments text-{{ block.settings.alignment }}">
+    <span class="installments__text">
+      or {{ installment.options[0].value }} payments of
+      {{ product.selected_or_first_available_variant.price | divided_by: installment.options[0].value | money }}
+    </span>
+  </div>
+{% elsif shop.installments_enabled and product.selected_or_first_available_variant.price > 0 %}
+  {% assign count = block.settings.installment_count | default: 4 %}
+  <div class="installments text-{{ block.settings.alignment }}">
+    <span class="installments__text">
+      or {{ count }} payments of
+      {{ product.selected_or_first_available_variant.price | divided_by: count | money }}
+    </span>
+  </div>
+{% endif %}
 
 {% schema %}
 {
@@ -20,7 +24,7 @@
     {
       "type": "number",
       "id": "installment_count",
-      "label": "Number of installments",
+      "label": "Number of installments (fallback)",
       "default": 4,
       "min": 1
     },
