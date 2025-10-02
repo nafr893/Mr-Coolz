@@ -16,6 +16,7 @@
       "blocks": {
         "announcement_BxgCk9": {
           "type": "_announcement",
+          "disabled": true,
           "settings": {
             "text": "<strong>Free shipping at $149</strong>",
             "link": "shopify://collections/twin-peaks-topographical",
@@ -31,6 +32,7 @@
       "block_order": [
         "announcement_BxgCk9"
       ],
+      "disabled": true,
       "name": "t:names.announcement_bar",
       "settings": {
         "speed": 5,
