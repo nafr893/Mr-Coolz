@@ -156,7 +156,7 @@
               },
               "blocks": {}
             },
-            "swatches_hfqMyU": {
+            "swatches_Aymf7a": {
               "type": "swatches",
               "name": "t:names.swatches",
               "settings": {
@@ -232,7 +232,7 @@
           },
           "block_order": [
             "card-gallery",
-            "swatches_hfqMyU",
+            "swatches_Aymf7a",
             "product_title_4nY4eT",
             "review_AbUfDX",
             "price_EzJzMm"
