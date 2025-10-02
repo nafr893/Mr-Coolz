@@ -1,73 +1,45 @@
 {%- liquid
-  assign variant = product.selected_or_first_available_variant
-  assign count = block.settings.installment_count | default: 4
-  assign alignment = block.settings.alignment | default: 'left'
-  assign show_installments = false
-  assign installment_price = 0
-
-  if shop.installments_enabled and variant.price > 0 and count > 1
-    assign show_installments = true
-    assign installment_price = variant.price | divided_by: count
-  endif
+  assign block_settings = block.settings
+  assign product_resource = closest.product
+  assign selected_variant = product_resource.selected_or_first_available_variant
 -%}
 
-{%- if show_installments -%}
-  <div class="horizon-installments text-{{ alignment }}">
-    <span class="horizon-installments__text">
-      or {{ count }} payments of <strong>{{ installment_price | money }}</strong>
-    </span>
-  </div>
-{%- endif -%}
-
-{% schema %}
-{
-  "name": "Installment Price",
-    "tag": "div",
-  "settings": [
-    {
-      "type": "number",
-      "id": "installment_count",
-      "label": "Number of installments",
-      "default": 4,
-      
-    },
-    {
-      "type": "select",
-      "id": "alignment",
-      "label": "Text alignment",
-      "options": [
-        { "value": "left", "label": "Left" },
-        { "value": "center", "label": "Center" },
-        { "value": "right", "label": "Right" }
-      ],
-      "default": "left"
-    }
-  ],
-   "presets": [
-    {
-      "name": "Installments"
-    }
-  ]
-}
-{% endschema %}
+<product-price
+  class="text-block {{ text_block_classes }} text-{{ block_settings.alignment }} {{ block_settings.type_preset | default: 'paragraph' }} spacing-style"
+  data-block-id="{{ block.id }}"
+  data-product-id="{{ product_resource.id }}"
+  style="
+    {% render 'typography-style', settings: block_settings %}
+    {% render 'spacing-style', settings: block_settings %}
+    --width: {{ block_settings.width }};
+  "
+  {{ block.shopify_attributes }}
+>
+  {% if selected_variant != blank %}
+    <div class="installments">
+      <shopify-payment-terms
+        id="payment-terms-{{ selected_variant.id }}"
+        class="shopify-payment-terms"
+        data-shopify-payment-terms
+        data-product-id="{{ product_resource.id }}"
+        data-variant-id="{{ selected_variant.id }}"
+      ></shopify-payment-terms>
+      <span class="installments-fallback">
+        or split your purchase into easy payments at checkout
+      </span>
+    </div>
+  {% endif %}
+</product-price>
 
 {% stylesheet %}
-.horizon-installments {
-  margin-top: 0.5em;
-  font-size: 1rem;
+.installments-fallback {
+  display: block;
   color: var(--color-foreground, #222);
+  font-size: 1rem;
+  margin-top: 0.5em;
 }
-.horizon-installments__text {
-  font-family: var(--font-body--family, inherit);
-  letter-spacing: 0.01em;
-}
-.text-center {
-  text-align: center;
-}
-.text-right {
-  text-align: right;
-}
-.text-left {
-  text-align: left;
+.shopify-payment-terms[style*=\"display: block\"] + .installments-fallback,
+.shopify-payment-terms:not(:empty) + .installments-fallback {
+  display: none !important;
 }
 {% endstylesheet %}
