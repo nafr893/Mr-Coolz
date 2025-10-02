@@ -227,8 +227,22 @@
               "type": "installment",
               "name": "Installments",
               "settings": {
-                "installment_count": 4,
-                "alignment": "left"
+                "show_sale_price_first": true,
+                "show_installments": true,
+                "show_tax_info": false,
+                "type_preset": "",
+                "width": "100%",
+                "alignment": "left",
+                "font": "var(--font-body--family)",
+                "font_size": "1rem",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "color": "var(--color-foreground)",
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
               },
               "blocks": {}
             },
