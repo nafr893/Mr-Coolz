@@ -31,6 +31,37 @@
   {% endif %}
 </product-price>
 
+{% schema %}
+{
+  "name": "Installment Price",
+  "tag": "div",
+  "settings": [
+    {
+      "type": "number",
+      "id": "installment_count",
+      "label": "Number of installments",
+      "default": 4
+    },
+    {
+      "type": "select",
+      "id": "alignment",
+      "label": "Text alignment",
+      "options": [
+        { "value": "left", "label": "Left" },
+        { "value": "center", "label": "Center" },
+        { "value": "right", "label": "Right" }
+      ],
+      "default": "left"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Installments"
+    }
+  ]
+}
+{% endschema %}
+
 {% stylesheet %}
 .installments-fallback {
   display: block;
