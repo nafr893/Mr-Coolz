@@ -1,20 +1,23 @@
-{% if product.selected_or_first_available_variant.selling_plan_allocations.size > 0 %}
-  {% assign installment = product.selected_or_first_available_variant.selling_plan_allocations[0].selling_plan %}
-  <div class="installments text-{{ block.settings.alignment }}">
-    <span class="installments__text">
-      or {{ installment.options[0].value }} payments of
-      {{ product.selected_or_first_available_variant.price | divided_by: installment.options[0].value | money }}
+{%- liquid
+  assign variant = product.selected_or_first_available_variant
+  assign count = block.settings.installment_count | default: 4
+  assign alignment = block.settings.alignment | default: 'left'
+  assign show_installments = false
+  assign installment_price = 0
+
+  if shop.installments_enabled and variant.price > 0 and count > 1
+    assign show_installments = true
+    assign installment_price = variant.price | divided_by: count
+  endif
+-%}
+
+{%- if show_installments -%}
+  <div class="horizon-installments text-{{ alignment }}">
+    <span class="horizon-installments__text">
+      or {{ count }} payments of <strong>{{ installment_price | money }}</strong>
     </span>
   </div>
-{% elsif shop.installments_enabled and product.selected_or_first_available_variant.price > 0 %}
-  {% assign count = block.settings.installment_count | default: 4 %}
-  <div class="installments text-{{ block.settings.alignment }}">
-    <span class="installments__text">
-      or {{ count }} payments of
-      {{ product.selected_or_first_available_variant.price | divided_by: count | money }}
-    </span>
-  </div>
-{% endif %}
+{%- endif -%}
 
 {% schema %}
 {
@@ -24,9 +27,9 @@
     {
       "type": "number",
       "id": "installment_count",
-      "label": "Number of installments (fallback)",
+      "label": "Number of installments",
       "default": 4,
-      "min": 1
+      "min": 2
     },
     {
       "type": "select",
@@ -42,3 +45,24 @@
   ]
 }
 {% endschema %}
+
+{% stylesheet %}
+.horizon-installments {
+  margin-top: 0.5em;
+  font-size: 1rem;
+  color: var(--color-foreground, #222);
+}
+.horizon-installments__text {
+  font-family: var(--font-body--family, inherit);
+  letter-spacing: 0.01em;
+}
+.text-center {
+  text-align: center;
+}
+.text-right {
+  text-align: right;
+}
+.text-left {
+  text-align: left;
+}
+{% endstylesheet %}
