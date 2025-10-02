@@ -48,11 +48,7 @@
   "
   {{ block.shopify_attributes }}
 >
-  {% render 'price',
-    show_unit_price: true,
-    product_resource: product_resource,
-    show_sale_price_first: block_settings.show_sale_price_first
-  %}
+  
 
   {% if block_settings.show_tax_info %}
     <div class="tax-note">
@@ -94,12 +90,7 @@
   form.payment-terms {
     padding-top: 0.5em;
   }
-  .price-installment {
-    display: none; 
-  }
-  .price {
-    display: inline; 
-  }
+
 
   .installments:not(:has(shopify-payment-terms)) {
     display: none;
