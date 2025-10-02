@@ -6,7 +6,8 @@
  * or related systems. Please exercise caution as any changes
  * made to this file may be overwritten.
  * ------------------------------------------------------------
- */{
+ */
+{
   "sections": {
     "main": {
       "type": "product-information",
@@ -25,10 +26,9 @@
             "thumbnail_position": "right",
             "thumbnail_width": 44,
             "aspect_ratio": "adapt",
-            "constrain_to_viewport": true,
-            "media_fit": "contain",
             "media_radius": 0,
             "extend_media": false,
+            "constrain_to_viewport": true,
             "zoom": true,
             "video_loop": false,
             "hide_variants": true,
