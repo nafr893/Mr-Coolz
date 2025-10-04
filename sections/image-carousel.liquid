@@ -61,35 +61,22 @@
         return window.innerWidth < 750 ? 2 : 4;
       }
 
-      function setTrackWidth() {
-        const slidesPerView = getSlidesPerView();
-        track.style.width = `${(slides.length / slidesPerView) * 100}%`;
-        slides.forEach(slide => {
-          slide.style.width = `${100 / slidesPerView}%`;
-          slide.style.flex = `0 0 ${100 / slidesPerView}%`;
-        });
-      }
-
-      let slidesPerView = getSlidesPerView();
       let index = 0;
 
       function updateCarousel() {
-        slidesPerView = getSlidesPerView();
-        setTrackWidth();
-        track.style.transform = `translateX(-${index * (100 / (slides.length / slidesPerView))}%)`;
+        const slidesPerView = getSlidesPerView();
+        track.style.transform = `translateX(-${index * (100 / slidesPerView)}%)`;
       }
 
       {% if section.settings.auto_rotate %}
         setInterval(() => {
-          slidesPerView = getSlidesPerView();
+          const slidesPerView = getSlidesPerView();
           index = (index + 1) % Math.ceil(slides.length / slidesPerView);
           updateCarousel();
         }, {{ section.settings.rotate_interval | default: 4000 }});
       {% endif %}
 
-      window.addEventListener('resize', () => {
-        updateCarousel();
-      });
+      window.addEventListener('resize', updateCarousel);
 
       updateCarousel();
     })();
