@@ -531,8 +531,8 @@
               "name": "t:names.text",
               "settings": {
                 "text": "<p>{{ closest.product.metafields.custom.feature_description_1 | metafield_tag }}</p>",
-                "width": "fit-content",
-                "max_width": "normal",
+                "width": "100%",
+                "max_width": "none",
                 "alignment": "left",
                 "type_preset": "rte",
                 "font": "var(--font-body--family)",
@@ -653,8 +653,8 @@
               "name": "t:names.text",
               "settings": {
                 "text": "<p>{{ closest.product.metafields.custom.feature_description_2 | metafield_tag }}</p>",
-                "width": "fit-content",
-                "max_width": "normal",
+                "width": "100%",
+                "max_width": "none",
                 "alignment": "left",
                 "type_preset": "rte",
                 "font": "var(--font-body--family)",
@@ -775,8 +775,8 @@
               "name": "t:names.text",
               "settings": {
                 "text": "<p>{{ closest.product.metafields.custom.feature_description_3 | metafield_tag }}</p>",
-                "width": "fit-content",
-                "max_width": "normal",
+                "width": "100%",
+                "max_width": "none",
                 "alignment": "left",
                 "type_preset": "rte",
                 "font": "var(--font-body--family)",
