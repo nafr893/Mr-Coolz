@@ -483,7 +483,7 @@
               "settings": {
                 "image": "{{ closest.product.metafields.custom.feature_image_1.value }}",
                 "link": "",
-                "image_ratio": "adapt",
+                "image_ratio": "square",
                 "width": "fill",
                 "custom_width": 100,
                 "width_mobile": "fill",
@@ -605,7 +605,7 @@
               "settings": {
                 "image": "{{ closest.product.metafields.custom.feature_image_2.value }}",
                 "link": "",
-                "image_ratio": "adapt",
+                "image_ratio": "square",
                 "width": "fill",
                 "custom_width": 100,
                 "width_mobile": "fill",
@@ -727,7 +727,7 @@
               "settings": {
                 "image": "{{ closest.product.metafields.custom.feature_image_3.value }}",
                 "link": "",
-                "image_ratio": "adapt",
+                "image_ratio": "square",
                 "width": "fill",
                 "custom_width": 100,
                 "width_mobile": "fill",
