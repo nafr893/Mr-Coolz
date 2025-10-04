@@ -57,16 +57,26 @@
       const slides = track.querySelectorAll('.carousel-slide');
       if (slides.length <= 1) return;
 
-      // Determine slides per view
       function getSlidesPerView() {
         return window.innerWidth < 750 ? 2 : 4;
       }
+
+      function setTrackWidth() {
+        const slidesPerView = getSlidesPerView();
+        track.style.width = `${(slides.length / slidesPerView) * 100}%`;
+        slides.forEach(slide => {
+          slide.style.width = `${100 / slidesPerView}%`;
+          slide.style.flex = `0 0 ${100 / slidesPerView}%`;
+        });
+      }
+
       let slidesPerView = getSlidesPerView();
       let index = 0;
 
       function updateCarousel() {
         slidesPerView = getSlidesPerView();
-        track.style.transform = `translateX(-${index * (100 / slidesPerView)}%)`;
+        setTrackWidth();
+        track.style.transform = `translateX(-${index * (100 / (slides.length / slidesPerView))}%)`;
       }
 
       {% if section.settings.auto_rotate %}
@@ -77,12 +87,10 @@
         }, {{ section.settings.rotate_interval | default: 4000 }});
       {% endif %}
 
-      // Responsive: update on resize
       window.addEventListener('resize', () => {
         updateCarousel();
       });
 
-      // Initial position
       updateCarousel();
     })();
   </script>
@@ -229,12 +237,15 @@
   display: flex;
   transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
   will-change: transform;
+  width: 100%;
 }
 .carousel-slide {
+  width: 50%;
   flex: 0 0 50%;
 }
 @media (min-width: 750px) {
   .carousel-slide {
+    width: 25%;
     flex: 0 0 25%;
   }
 }
