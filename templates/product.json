@@ -2047,6 +2047,14 @@
     "image_carousel_kmDCf8": {
       "type": "image-carousel",
       "blocks": {
+        "carousel_image_iVcfb7": {
+          "type": "carousel_image",
+          "settings": {
+            "image": "shopify://shop_images/IMG_8942.heic",
+            "alt": "",
+            "link": ""
+          }
+        },
         "carousel_image_KrELh6": {
           "type": "carousel_image",
           "settings": {
@@ -2081,6 +2089,7 @@
         }
       },
       "block_order": [
+        "carousel_image_iVcfb7",
         "carousel_image_KrELh6",
         "carousel_image_LCz4pk",
         "carousel_image_NXhjGN",
@@ -2091,7 +2100,11 @@
         "heading": "Mr. Coolz In Action",
         "heading_alignment": "left",
         "auto_rotate": true,
-        "rotate_interval": 4000
+        "rotate_interval": 4000,
+        "padding_top": 20,
+        "padding_bottom": 52,
+        "padding_left": 0,
+        "padding_right": 0
       }
     }
   },
