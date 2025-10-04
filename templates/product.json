@@ -2061,7 +2061,10 @@
       ],
       "name": "Image Carousel",
       "settings": {
-        "heading": "Mr. Coolz In Action"
+        "heading": "Mr. Coolz In Action",
+        "heading_alignment": "left",
+        "auto_rotate": true,
+        "rotate_interval": 4000
       }
     }
   },
