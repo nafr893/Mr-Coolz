@@ -2047,6 +2047,30 @@
     "image_carousel_kmDCf8": {
       "type": "image-carousel",
       "blocks": {
+        "carousel_image_KrELh6": {
+          "type": "carousel_image",
+          "settings": {
+            "image": "shopify://shop_images/Locked._Loaded._Ice_cold._Mr._Coolz_is_ready_to_float._riverdayready.jpg",
+            "alt": "",
+            "link": ""
+          }
+        },
+        "carousel_image_LCz4pk": {
+          "type": "carousel_image",
+          "settings": {
+            "image": "shopify://shop_images/Chill_was_the_vibe._Mr._Coolz_was_the_reason_summervibes_summerrecap_mrcoolz-3.jpg",
+            "alt": "",
+            "link": ""
+          }
+        },
+        "carousel_image_NXhjGN": {
+          "type": "carousel_image",
+          "settings": {
+            "image": "shopify://shop_images/Chill_was_the_vibe._Mr._Coolz_was_the_reason_summervibes_summerrecap_mrcoolz.jpg",
+            "alt": "",
+            "link": ""
+          }
+        },
         "carousel_image_J96jVr": {
           "type": "carousel_image",
           "settings": {
@@ -2057,6 +2081,9 @@
         }
       },
       "block_order": [
+        "carousel_image_KrELh6",
+        "carousel_image_LCz4pk",
+        "carousel_image_NXhjGN",
         "carousel_image_J96jVr"
       ],
       "name": "Image Carousel",
