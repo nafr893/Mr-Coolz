@@ -29,12 +29,14 @@
                 <a href="{{ block.settings.link }}">
               {% endif %}
                   {% if block.settings.image != blank %}
-                    <img
-                      src="{{ block.settings.image | image_url: width: 1600 }}"
-                      alt="{{ block.settings.alt | escape }}"
-                      class="w-full object-cover rounded-2xl"
-                      loading="lazy"
-                    >
+                    <div class="carousel-image-wrapper">
+                      <img
+                        src="{{ block.settings.image | image_url: width: 1600 }}"
+                        alt="{{ block.settings.alt | escape }}"
+                        class="carousel-image"
+                        loading="lazy"
+                      >
+                    </div>
                   {% endif %}
               {% if block.settings.link != blank %}
                 </a>
@@ -212,5 +214,21 @@
   .carousel-slide {
     flex: 0 0 25%;
   }
+}
+.carousel-image-wrapper {
+  aspect-ratio: 2 / 3;
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.carousel-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
 }
 {% endstylesheet %}
