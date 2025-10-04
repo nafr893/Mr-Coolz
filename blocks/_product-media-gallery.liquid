@@ -617,7 +617,7 @@
   }
 
   .dialog-zoomed-gallery .product-media-container--video deferred-media,
-  .dialog-zoomed-gallery .product-media-container--external_video deferred-media {
+  .dialog-zoomed-gallery .product-media_container--external_video deferred-media {
     height: auto;
     aspect-ratio: var(--ratio);
   }
@@ -657,6 +657,10 @@
     /* Hide desktop controls on mobile when vertical thumbnails are enabled */
     .desktop-controls {
       display: none;
+    }
+
+    .media-gallery__mobile-controls {
+      margin-top: 1rem;
     }
   }
   
