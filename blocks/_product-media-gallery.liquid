@@ -31,21 +31,27 @@
   assign render_mobile_slideshow_controls = false
   
   assign slideshow_controls_style = block.settings.slideshow_controls_style
-  # Use a counter instead of dots when there are many images to avoid cropping/overflow.
-  if slideshow_controls_style == 'dots' and selected_product.media.size > 15
-    assign slideshow_controls_style = 'counter'
+  assign mobile_pagination_position = block.settings.thumbnail_position_mobile | default: 'bottom'
+
+  # Desktop controls
+  if slideshow_controls_style == 'thumbnails'
+    assign pagination_position = block.settings.thumbnail_position
+  else
+    assign pagination_position = 'center'
   endif
 
-  if block.settings.slideshow_controls_style != block.settings.slideshow_mobile_controls_style
-    assign slideshow_controls_class = 'mobile:hidden'
+  # Mobile controls
+  assign render_mobile_slideshow_controls = false
+  assign mobile_controls_class = ''
 
-    if block.settings.slideshow_mobile_controls_style != 'hint'
+  if block.settings.slideshow_mobile_controls_style == 'thumbnails'
+    if block.settings.thumbnail_position_mobile == 'bottom'
       assign render_mobile_slideshow_controls = true
+      assign mobile_controls_class = 'desktop:hidden media-gallery__mobile-controls'
+    elsif block.settings.thumbnail_position_mobile == 'vertical'
+      assign render_mobile_slideshow_controls = true
+      assign mobile_controls_class = 'desktop:hidden media-gallery__mobile-controls media-gallery__mobile-controls--vertical'
     endif
-  elsif slideshow_controls_style == 'thumbnails' and block.settings.thumbnail_position_mobile == 'vertical'
-    # Render separate mobile controls when thumbnails have different mobile positioning
-    assign render_mobile_slideshow_controls = true
-    assign slideshow_controls_class = 'mobile:hidden'
   endif
 
   assign render_slideshow_arrows = false
@@ -226,22 +232,12 @@
 
       {% if render_mobile_slideshow_controls %}
         {%- render 'slideshow-controls',
-          class: 'desktop:hidden media-gallery__mobile-controls',
+          class: mobile_controls_class,
           style: block.settings.slideshow_mobile_controls_style,
           item_count: item_count,
           thumbnails: combined_media,
           controls_on_media: true,
           pagination_position: 'center',
-        -%}
-      {% elsif slideshow_controls_style == 'thumbnails' and mobile_pagination_position == 'vertical' %}
-        {%- render 'slideshow-controls',
-          class: 'desktop:hidden media-gallery__mobile-controls media-gallery__mobile-controls--vertical',
-          style: 'thumbnails',
-          item_count: item_count,
-          thumbnails: combined_media,
-          controls_on_media: false,
-          pagination_position: 'right',
-          aspect_ratio: block.settings.aspect_ratio
         -%}
       {% endif %}
     {% endcapture %}
