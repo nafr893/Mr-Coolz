@@ -18,30 +18,32 @@
       </h3>
     {% endif %}
 
-    <div class="image-carousel relative overflow-hidden">
-      <div class="carousel-track flex transition-transform duration-700 ease-in-out">
-        {% for block in section.blocks %}
-          {% if block.type == 'carousel_image' %}
-            <div class="carousel-slide min-w-1/2 sm:min-w-1/4">
-              {% if block.settings.link != blank %}
-                <a href="{{ block.settings.link }}">
-              {% endif %}
-                  {% if block.settings.image != blank %}
-                    <div class="carousel-image-wrapper">
-                      <img
-                        src="{{ block.settings.image | image_url: width: 1600 }}"
-                        alt="{{ block.settings.alt | escape }}"
-                        class="carousel-image"
-                        loading="lazy"
-                      >
-                    </div>
-                  {% endif %}
-              {% if block.settings.link != blank %}
-                </a>
-              {% endif %}
-            </div>
-          {% endif %}
-        {% endfor %}
+    <div class="image-carousel relative">
+      <div class="carousel-viewport overflow-hidden w-full">
+        <div class="carousel-track flex transition-transform duration-700 ease-in-out">
+          {% for block in section.blocks %}
+            {% if block.type == 'carousel_image' %}
+              <div class="carousel-slide min-w-1/2 sm:min-w-1/4">
+                {% if block.settings.link != blank %}
+                  <a href="{{ block.settings.link }}">
+                {% endif %}
+                    {% if block.settings.image != blank %}
+                      <div class="carousel-image-wrapper">
+                        <img
+                          src="{{ block.settings.image | image_url: width: 1600 }}"
+                          alt="{{ block.settings.alt | escape }}"
+                          class="carousel-image"
+                          loading="lazy"
+                        >
+                      </div>
+                    {% endif %}
+                {% if block.settings.link != blank %}
+                  </a>
+                {% endif %}
+              </div>
+            {% endif %}
+          {% endfor %}
+        </div>
       </div>
     </div>
   </div>
@@ -56,15 +58,20 @@
       if (slides.length <= 1) return;
 
       // Determine slides per view
-      const slidesPerView = window.innerWidth < 750 ? 2 : 4;
+      function getSlidesPerView() {
+        return window.innerWidth < 750 ? 2 : 4;
+      }
+      let slidesPerView = getSlidesPerView();
       let index = 0;
 
       function updateCarousel() {
+        slidesPerView = getSlidesPerView();
         track.style.transform = `translateX(-${index * (100 / slidesPerView)}%)`;
       }
 
       {% if section.settings.auto_rotate %}
         setInterval(() => {
+          slidesPerView = getSlidesPerView();
           index = (index + 1) % Math.ceil(slides.length / slidesPerView);
           updateCarousel();
         }, {{ section.settings.rotate_interval | default: 4000 }});
@@ -74,6 +81,9 @@
       window.addEventListener('resize', () => {
         updateCarousel();
       });
+
+      // Initial position
+      updateCarousel();
     })();
   </script>
 </section>
@@ -211,9 +221,14 @@
 .image-carousel-heading.text-right {
   text-align: right;
 }
+.carousel-viewport {
+  overflow: hidden;
+  width: 100%;
+}
 .carousel-track {
   display: flex;
   transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform;
 }
 .carousel-slide {
   flex: 0 0 50%;
