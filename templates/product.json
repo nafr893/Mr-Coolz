@@ -481,6 +481,7 @@
               "type": "image",
               "name": "t:names.image",
               "settings": {
+                "image": "{{ closest.product.metafields.custom.feature_image_1.value }}",
                 "link": "",
                 "image_ratio": "adapt",
                 "width": "fill",
@@ -503,7 +504,7 @@
               "type": "text",
               "name": "t:names.heading",
               "settings": {
-                "text": "<h2>New arrivals</h2>",
+                "text": "<h2>{{ closest.product.metafields.custom.feature_heading_1.value }}</h2>",
                 "width": "fit-content",
                 "max_width": "normal",
                 "alignment": "left",
@@ -529,7 +530,7 @@
               "type": "text",
               "name": "t:names.text",
               "settings": {
-                "text": "<p>We make things that work better and last longer. Our products solve real problems with clean design and honest materials.</p>",
+                "text": "<p>{{ closest.product.metafields.custom.feature_description_1 | metafield_tag }}</p>",
                 "width": "fit-content",
                 "max_width": "normal",
                 "alignment": "left",
@@ -602,6 +603,7 @@
               "type": "image",
               "name": "t:names.image",
               "settings": {
+                "image": "{{ closest.product.metafields.custom.feature_image_1.value }}",
                 "link": "",
                 "image_ratio": "adapt",
                 "width": "fill",
@@ -624,7 +626,7 @@
               "type": "text",
               "name": "t:names.heading",
               "settings": {
-                "text": "<h2>New arrivals</h2>",
+                "text": "<p>{{ closest.product.metafields.custom.feature_heading_2.value }}</p>",
                 "width": "fit-content",
                 "max_width": "normal",
                 "alignment": "left",
@@ -650,7 +652,7 @@
               "type": "text",
               "name": "t:names.text",
               "settings": {
-                "text": "<p>We make things that work better and last longer. Our products solve real problems with clean design and honest materials.</p>",
+                "text": "<p>{{ closest.product.metafields.custom.feature_description_2 | metafield_tag }}</p>",
                 "width": "fit-content",
                 "max_width": "normal",
                 "alignment": "left",
@@ -723,6 +725,7 @@
               "type": "image",
               "name": "t:names.image",
               "settings": {
+                "image": "{{ closest.product.metafields.custom.feature_image_3.value }}",
                 "link": "",
                 "image_ratio": "adapt",
                 "width": "fill",
@@ -745,7 +748,7 @@
               "type": "text",
               "name": "t:names.heading",
               "settings": {
-                "text": "<h2>New arrivals</h2>",
+                "text": "<p>{{ closest.product.metafields.custom.feature_heading_3.value }}</p>",
                 "width": "fit-content",
                 "max_width": "normal",
                 "alignment": "left",
@@ -771,7 +774,7 @@
               "type": "text",
               "name": "t:names.text",
               "settings": {
-                "text": "<p>We make things that work better and last longer. Our products solve real problems with clean design and honest materials.</p>",
+                "text": "<p>{{ closest.product.metafields.custom.feature_description_3 | metafield_tag }}</p>",
                 "width": "fit-content",
                 "max_width": "normal",
                 "alignment": "left",
