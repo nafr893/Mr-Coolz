@@ -4,16 +4,14 @@
 {% endcomment %}
 
 <section
-  class="image-carousel-section"
+  class="image-carousel-section section section--{{ section.settings.section_width }}"
   data-section-id="{{ section.id }}"
   style="
     padding-top: {{ section.settings.padding_top | default: 0 }}px;
     padding-bottom: {{ section.settings.padding_bottom | default: 0 }}px;
-    padding-left: {{ section.settings.padding_left | default: 0 }}px;
-    padding-right: {{ section.settings.padding_right | default: 0 }}px;
   "
 >
-  <div class="page-width">
+  <div class="{% if section.settings.section_width == 'page-width' %}page-width{% endif %}">
     {% if section.settings.heading != blank %}
       <h3 class="text-3xl font-bold mb-6 image-carousel-heading text-{{ section.settings.heading_alignment }}">
         {{ section.settings.heading }}
