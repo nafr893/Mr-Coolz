@@ -2043,6 +2043,26 @@
         "padding-block-start": 48,
         "padding-block-end": 48
       }
+    },
+    "image_carousel_kmDCf8": {
+      "type": "image-carousel",
+      "blocks": {
+        "carousel_image_J96jVr": {
+          "type": "carousel_image",
+          "settings": {
+            "image": "shopify://shop_images/Chill_was_the_vibe._Mr._Coolz_was_the_reason_summervibes_summerrecap_mrcoolz-2.jpg",
+            "alt": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "carousel_image_J96jVr"
+      ],
+      "name": "Image Carousel",
+      "settings": {
+        "heading": "Mr. Coolz In Action"
+      }
     }
   },
   "order": [
@@ -2051,6 +2071,7 @@
     "section_pUDUEx",
     "section_XCRd9G",
     "1759595664da8fe84e",
-    "product_recommendations_qggXJq"
+    "product_recommendations_qggXJq",
+    "image_carousel_kmDCf8"
   ]
 }

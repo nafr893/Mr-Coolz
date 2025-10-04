@@ -4,11 +4,9 @@
 {% endcomment %}
 
 <section class="image-carousel-section" data-section-id="{{ section.id }}">
-  <div class="page-width">
+  <div class="page-width text-center">
     {% if section.settings.heading != blank %}
-      <h2 class="text-3xl font-bold mb-6 image-carousel-heading text-{{ section.settings.heading_alignment }}">
-        {{ section.settings.heading }}
-      </h2>
+      <h2 class="text-3xl font-bold mb-6">{{ section.settings.heading }}</h2>
     {% endif %}
 
     <div class="image-carousel relative overflow-hidden">
@@ -46,13 +44,11 @@
       const slides = track.querySelectorAll('.carousel-slide');
       if (slides.length <= 1) return;
 
-      {% if section.settings.auto_rotate %}
-        let index = 0;
-        setInterval(() => {
-          index = (index + 1) % slides.length;
-          track.style.transform = `translateX(-${index * 100}%)`;
-        }, {{ section.settings.rotate_interval | default: 4000 }});
-      {% endif %}
+      let index = 0;
+      setInterval(() => {
+        index = (index + 1) % slides.length;
+        track.style.transform = `translateX(-${index * 100}%)`;
+      }, 4000);
     })();
   </script>
 </section>
@@ -66,32 +62,6 @@
       "id": "heading",
       "label": "Heading",
       "default": "Featured Images"
-    },
-    {
-      "type": "select",
-      "id": "heading_alignment",
-      "label": "Heading alignment",
-      "options": [
-        { "value": "left", "label": "Left" },
-        { "value": "center", "label": "Center" },
-        { "value": "right", "label": "Right" }
-      ],
-      "default": "center"
-    },
-    {
-      "type": "checkbox",
-      "id": "auto_rotate",
-      "label": "Auto-rotate carousel",
-      "default": true
-    },
-    {
-      "type": "range",
-      "id": "rotate_interval",
-      "label": "Auto-rotate interval (ms)",
-      "min": 2000,
-      "max": 10000,
-      "step": 500,
-      "default": 4000
     }
   ],
   "blocks": [
@@ -132,18 +102,11 @@
   position: relative;
   max-width: 100%;
 }
-.image-carousel-heading.text-left {
-  text-align: left;
-}
-.image-carousel-heading.text-center {
-  text-align: center;
-}
-.image-carousel-heading.text-right {
-  text-align: right;
-}
+
 .carousel-track {
   display: flex;
 }
+
 .carousel-slide {
   flex: 0 0 100%;
 }
