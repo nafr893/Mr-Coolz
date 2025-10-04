@@ -441,7 +441,7 @@
           "type": "text",
           "name": "t:names.heading",
           "settings": {
-            "text": "<h3>Product Features</h3>",
+            "text": "<h2>Product Features</h2>",
             "width": "fit-content",
             "max_width": "normal",
             "alignment": "left",
