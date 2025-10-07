@@ -561,8 +561,8 @@
               "type": "text",
               "settings": {
                 "text": "<h5>Stay in the loop for product drops, restocks and everything Mr.Coolz</h5>",
-                "width": "fit-content",
-                "max_width": "narrow",
+                "width": "100%",
+                "max_width": "none",
                 "alignment": "left",
                 "type_preset": "rte",
                 "font": "var(--font-body--family)",
@@ -587,7 +587,7 @@
               "name": "t:names.email_signup",
               "settings": {
                 "width": "custom",
-                "custom_width": 60,
+                "custom_width": 70,
                 "inherit_color_scheme": true,
                 "color_scheme": "",
                 "border_style": "all",
