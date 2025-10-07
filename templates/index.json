@@ -101,7 +101,7 @@
             "align_baseline": false,
             "horizontal_alignment_flex_direction_column": "center",
             "vertical_alignment_flex_direction_column": "flex-end",
-            "gap": 10,
+            "gap": 15,
             "width": "fill",
             "custom_width": 100,
             "width_mobile": "fill",
@@ -129,32 +129,6 @@
             "padding-inline-end": 40
           },
           "blocks": {
-            "text_gFVEBW": {
-              "type": "text",
-              "name": "t:names.text",
-              "settings": {
-                "text": "<p><strong>BESTSELLER</strong></p>",
-                "width": "fit-content",
-                "max_width": "normal",
-                "alignment": "left",
-                "type_preset": "rte",
-                "font": "var(--font-body--family)",
-                "font_size": "1rem",
-                "line_height": "normal",
-                "letter_spacing": "normal",
-                "case": "none",
-                "wrap": "pretty",
-                "color": "var(--color-foreground)",
-                "background": true,
-                "background_color": "#000000",
-                "corner_radius": 0,
-                "padding-block-start": 0,
-                "padding-block-end": 0,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
-              },
-              "blocks": {}
-            },
             "text_iANcUj": {
               "type": "text",
               "settings": {
@@ -179,11 +153,26 @@
                 "padding-inline-end": 0
               },
               "blocks": {}
+            },
+            "button_YJqdgF": {
+              "type": "button",
+              "name": "t:names.button",
+              "settings": {
+                "label": "SHOP NOW",
+                "link": "shopify://collections/all",
+                "open_in_new_tab": false,
+                "style_class": "button",
+                "width": "fit-content",
+                "custom_width": 100,
+                "width_mobile": "fit-content",
+                "custom_width_mobile": 100
+              },
+              "blocks": {}
             }
           },
           "block_order": [
-            "text_gFVEBW",
-            "text_iANcUj"
+            "text_iANcUj",
+            "button_YJqdgF"
           ]
         },
         "group_6rfye3": {
@@ -198,7 +187,7 @@
             "align_baseline": false,
             "horizontal_alignment_flex_direction_column": "center",
             "vertical_alignment_flex_direction_column": "flex-end",
-            "gap": 10,
+            "gap": 15,
             "width": "fill",
             "custom_width": 100,
             "width_mobile": "fill",
@@ -226,32 +215,6 @@
             "padding-inline-end": 40
           },
           "blocks": {
-            "text_YRhGG7": {
-              "type": "text",
-              "name": "t:names.text",
-              "settings": {
-                "text": "<p><strong>BESTSELLER</strong></p>",
-                "width": "fit-content",
-                "max_width": "normal",
-                "alignment": "left",
-                "type_preset": "rte",
-                "font": "var(--font-body--family)",
-                "font_size": "1rem",
-                "line_height": "normal",
-                "letter_spacing": "normal",
-                "case": "none",
-                "wrap": "pretty",
-                "color": "var(--color-foreground)",
-                "background": true,
-                "background_color": "#000000",
-                "corner_radius": 0,
-                "padding-block-start": 0,
-                "padding-block-end": 0,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
-              },
-              "blocks": {}
-            },
             "text_pr668r": {
               "type": "text",
               "settings": {
@@ -276,11 +239,26 @@
                 "padding-inline-end": 0
               },
               "blocks": {}
+            },
+            "button_kgjUBM": {
+              "type": "button",
+              "name": "t:names.button",
+              "settings": {
+                "label": "SHOP NOW",
+                "link": "shopify://collections/all",
+                "open_in_new_tab": false,
+                "style_class": "button",
+                "width": "fit-content",
+                "custom_width": 100,
+                "width_mobile": "fit-content",
+                "custom_width_mobile": 100
+              },
+              "blocks": {}
             }
           },
           "block_order": [
-            "text_YRhGG7",
-            "text_pr668r"
+            "text_pr668r",
+            "button_kgjUBM"
           ]
         }
       },
