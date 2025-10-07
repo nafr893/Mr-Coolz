@@ -11,3 +11,28 @@ div.jdgm-prev-badge
     display: flex!important;
 gap: 5px;
 }
+
+
+
+
+/* raised hunting giveaway section css */ 
+section#shopify-section-template--25251905110307__hero_jVaWmY {
+    display: none; 
+}
+@media (min-width: 768px) {
+section#shopify-section-template--25251905110307__hero_jVaWmY {
+    display: block;
+  }
+}
+/* Show on mobile (up to 767px), hide on desktop */
+section#shopify-section-template--25251905110307__hero_dFxV7d {
+  display: block;
+}
+
+@media (min-width: 768px) {
+section#shopify-section-template--25251905110307__hero_dFxV7d {
+    display: none;
+  }
+}
+
+
