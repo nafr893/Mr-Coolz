@@ -223,6 +223,7 @@
             "color_scheme": "scheme-5",
             "background_media": "image",
             "video_position": "cover",
+            "background_image": "shopify://shop_images/Mr_Coolz_45L_Hero-min.webp",
             "background_image_position": "cover",
             "border": "none",
             "border_width": 1,
@@ -252,10 +253,36 @@
               },
               "blocks": {}
             },
+            "text_YRhGG7": {
+              "type": "text",
+              "name": "t:names.text",
+              "settings": {
+                "text": "<p>BESTSELLEr</p>",
+                "width": "fit-content",
+                "max_width": "normal",
+                "alignment": "left",
+                "type_preset": "rte",
+                "font": "var(--font-body--family)",
+                "font_size": "1rem",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "wrap": "pretty",
+                "color": "var(--color-foreground)",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
             "text_pr668r": {
               "type": "text",
               "settings": {
-                "text": "<h3>Bestsellers</h3>",
+                "text": "<h3>45L Cooler</h3>",
                 "width": "fit-content",
                 "max_width": "normal",
                 "alignment": "center",
@@ -276,26 +303,12 @@
                 "padding-inline-end": 0
               },
               "blocks": {}
-            },
-            "button_BdkLFJ": {
-              "type": "button",
-              "settings": {
-                "label": "Shop now",
-                "link": "shopify://collections/all",
-                "open_in_new_tab": false,
-                "style_class": "link",
-                "width": "fit-content",
-                "custom_width": 100,
-                "width_mobile": "fit-content",
-                "custom_width_mobile": 100
-              },
-              "blocks": {}
             }
           },
           "block_order": [
             "spacer_yKY993",
-            "text_pr668r",
-            "button_BdkLFJ"
+            "text_YRhGG7",
+            "text_pr668r"
           ]
         }
       },
