@@ -1803,7 +1803,7 @@
               "type": "image",
               "name": "t:names.image",
               "settings": {
-                "image": "shopify://shop_images/Mr_Coolz_Mini_Cooler_Graphic-min.png",
+                "image": "shopify://shop_images/Mrcoolz_graphic_2.webp",
                 "link": "",
                 "image_ratio": "adapt",
                 "width": "fill",
@@ -1954,7 +1954,7 @@
               "type": "_product-card-gallery",
               "name": "t:names.product_card_media",
               "settings": {
-                "image_ratio": "adapt",
+                "image_ratio": "square",
                 "border": "none",
                 "border_width": 1,
                 "border_opacity": 100,
