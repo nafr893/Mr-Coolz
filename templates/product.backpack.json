@@ -1805,7 +1805,7 @@
               "settings": {
                 "image": "shopify://shop_images/BE99639D-8687-4FCD-B6BA-E51D7AB25B3F.jpg",
                 "link": "",
-                "image_ratio": "square",
+                "image_ratio": "landscape",
                 "width": "fill",
                 "custom_width": 100,
                 "width_mobile": "fill",
