@@ -1053,7 +1053,7 @@
                       "type": "text",
                       "name": "t:names.text",
                       "settings": {
-                        "text": "<p>Weight</p>",
+                        "text": "<p>Capacity</p>",
                         "width": "fit-content",
                         "max_width": "normal",
                         "alignment": "left",
@@ -1079,7 +1079,7 @@
                       "type": "text",
                       "name": "t:names.text",
                       "settings": {
-                        "text": "<p>22lbs</p>",
+                        "text": "<p>30 Cans</p>",
                         "width": "fit-content",
                         "max_width": "none",
                         "alignment": "left",
@@ -1209,7 +1209,7 @@
                       "type": "text",
                       "name": "t:names.text",
                       "settings": {
-                        "text": "<p>Dimensions</p>",
+                        "text": "<p>Color</p>",
                         "width": "fit-content",
                         "max_width": "normal",
                         "alignment": "left",
@@ -1235,7 +1235,7 @@
                       "type": "text",
                       "name": "t:names.text",
                       "settings": {
-                        "text": "<p>26x17x16 In.</p>",
+                        "text": "<p>Dark Grey</p>",
                         "width": "fit-content",
                         "max_width": "none",
                         "alignment": "left",
@@ -1391,7 +1391,7 @@
                       "type": "text",
                       "name": "t:names.text",
                       "settings": {
-                        "text": "<p>5 Days</p>",
+                        "text": "<p>24 Hours</p>",
                         "width": "fit-content",
                         "max_width": "none",
                         "alignment": "left",
@@ -1521,7 +1521,7 @@
                       "type": "text",
                       "name": "t:names.text",
                       "settings": {
-                        "text": "<p>Handles</p>",
+                        "text": "<p>Pockets</p>",
                         "width": "fit-content",
                         "max_width": "normal",
                         "alignment": "left",
@@ -1547,7 +1547,7 @@
                       "type": "text",
                       "name": "t:names.text",
                       "settings": {
-                        "text": "<p>2 Side Handles</p>",
+                        "text": "<p>5 Total</p>",
                         "width": "fit-content",
                         "max_width": "none",
                         "alignment": "left",
@@ -1677,7 +1677,7 @@
                       "type": "text",
                       "name": "t:names.text",
                       "settings": {
-                        "text": "<p>Plastic</p>",
+                        "text": "<p>Straps</p>",
                         "width": "fit-content",
                         "max_width": "normal",
                         "alignment": "left",
@@ -1703,7 +1703,7 @@
                       "type": "text",
                       "name": "t:names.text",
                       "settings": {
-                        "text": "<p>UV Resistant</p>",
+                        "text": "<p>Adjustable</p>",
                         "width": "fit-content",
                         "max_width": "none",
                         "alignment": "left",
