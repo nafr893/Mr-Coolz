@@ -16,7 +16,7 @@
           "type": "text",
           "name": "t:names.heading",
           "settings": {
-            "text": "<p>Browse our latest products</p>",
+            "text": "<p>Built For The Outdoors</p>",
             "width": "fit-content",
             "max_width": "normal",
             "alignment": "left",
@@ -43,9 +43,9 @@
           "name": "t:names.button",
           "settings": {
             "label": "Shop all",
-            "link": "shopify://collections/all",
+            "link": "shopify://products/mr-coolz-backpack-cooler",
             "open_in_new_tab": false,
-            "style_class": "button-secondary",
+            "style_class": "button",
             "width": "fit-content",
             "custom_width": 100,
             "width_mobile": "fit-content",
@@ -58,9 +58,88 @@
         "text_YLPk4p",
         "button_H9gpTf"
       ],
-      "name": "t:names.hero",
+      "name": "Desktop Hero",
       "settings": {
         "media_type_1": "image",
+        "image_1": "shopify://shop_images/Mr_Coolz_Desktop_Hero-min.webp",
+        "media_type_2": "image",
+        "link": "",
+        "open_in_new_tab": false,
+        "content_direction": "column",
+        "vertical_on_mobile": true,
+        "horizontal_alignment": "space-between",
+        "vertical_alignment": "flex-end",
+        "align_baseline": true,
+        "horizontal_alignment_flex_direction_column": "flex-start",
+        "vertical_alignment_flex_direction_column": "flex-end",
+        "gap": 24,
+        "section_width": "page-width",
+        "section_height": "medium",
+        "section_height_custom": 50,
+        "color_scheme": "scheme-6",
+        "toggle_overlay": false,
+        "overlay_color": "#12121266",
+        "overlay_style": "solid",
+        "gradient_direction": "to bottom",
+        "blurred_reflection": false,
+        "reflection_opacity": 75,
+        "padding-block-start": 100,
+        "padding-block-end": 72
+      }
+    },
+    "hero_dFxV7d": {
+      "type": "hero",
+      "blocks": {
+        "text_qV9TVE": {
+          "type": "text",
+          "name": "t:names.heading",
+          "settings": {
+            "text": "<p>Built For The Outdoors</p>",
+            "width": "fit-content",
+            "max_width": "normal",
+            "alignment": "left",
+            "type_preset": "h2",
+            "font": "var(--font-body--family)",
+            "font_size": "1rem",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "color": "var(--color-foreground-heading)",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
+        "button_FK63Tw": {
+          "type": "button",
+          "name": "t:names.button",
+          "settings": {
+            "label": "SHOP NOW",
+            "link": "shopify://products/mr-coolz-backpack-cooler",
+            "open_in_new_tab": false,
+            "style_class": "button",
+            "width": "fit-content",
+            "custom_width": 100,
+            "width_mobile": "fit-content",
+            "custom_width_mobile": 100
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "text_qV9TVE",
+        "button_FK63Tw"
+      ],
+      "name": "Mobile Hero",
+      "settings": {
+        "media_type_1": "image",
+        "image_1": "shopify://shop_images/Chill_was_the_vibe._Mr._Coolz_was_the_reason_summervibes_summerrecap_mrcoolz-2.jpg",
         "media_type_2": "image",
         "link": "",
         "open_in_new_tab": false,
@@ -73,10 +152,10 @@
         "vertical_alignment_flex_direction_column": "flex-end",
         "gap": 24,
         "section_width": "page-width",
-        "section_height": "medium",
-        "section_height_custom": 50,
+        "section_height": "custom",
+        "section_height_custom": 60,
         "color_scheme": "scheme-6",
-        "toggle_overlay": true,
+        "toggle_overlay": false,
         "overlay_color": "#12121266",
         "overlay_style": "solid",
         "gradient_direction": "to bottom",
@@ -672,6 +751,7 @@
   },
   "order": [
     "hero_jVaWmY",
+    "hero_dFxV7d",
     "section_rqAWxH",
     "product_list_fa6P9H",
     "section_GD7pdb"
