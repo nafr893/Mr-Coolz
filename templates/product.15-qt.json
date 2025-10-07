@@ -1547,7 +1547,7 @@
                       "type": "text",
                       "name": "t:names.text",
                       "settings": {
-                        "text": "<p>1 Top Handle</p>",
+                        "text": "<p>Top Carrying Handle</p>",
                         "width": "fit-content",
                         "max_width": "none",
                         "alignment": "left",
