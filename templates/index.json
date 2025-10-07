@@ -129,19 +129,6 @@
             "padding-inline-end": 40
           },
           "blocks": {
-            "spacer_6EJzK3": {
-              "type": "spacer",
-              "settings": {
-                "size": "pixel",
-                "percent_size": 100,
-                "pixel_size": 16,
-                "custom_mobile_size": false,
-                "size_mobile": "percent",
-                "percent_size_mobile": 100,
-                "pixel_size_mobile": 120
-              },
-              "blocks": {}
-            },
             "text_gFVEBW": {
               "type": "text",
               "name": "t:names.text",
@@ -195,7 +182,6 @@
             }
           },
           "block_order": [
-            "spacer_6EJzK3",
             "text_gFVEBW",
             "text_iANcUj"
           ]
@@ -211,8 +197,8 @@
             "vertical_alignment": "center",
             "align_baseline": false,
             "horizontal_alignment_flex_direction_column": "center",
-            "vertical_alignment_flex_direction_column": "space-between",
-            "gap": 32,
+            "vertical_alignment_flex_direction_column": "flex-end",
+            "gap": 10,
             "width": "fill",
             "custom_width": 100,
             "width_mobile": "fill",
@@ -240,24 +226,11 @@
             "padding-inline-end": 40
           },
           "blocks": {
-            "spacer_yKY993": {
-              "type": "spacer",
-              "settings": {
-                "size": "pixel",
-                "percent_size": 100,
-                "pixel_size": 16,
-                "custom_mobile_size": false,
-                "size_mobile": "percent",
-                "percent_size_mobile": 100,
-                "pixel_size_mobile": 120
-              },
-              "blocks": {}
-            },
             "text_YRhGG7": {
               "type": "text",
               "name": "t:names.text",
               "settings": {
-                "text": "<p>BESTSELLEr</p>",
+                "text": "<p><strong>BESTSELLER</strong></p>",
                 "width": "fit-content",
                 "max_width": "normal",
                 "alignment": "left",
@@ -269,8 +242,8 @@
                 "case": "none",
                 "wrap": "pretty",
                 "color": "var(--color-foreground)",
-                "background": false,
-                "background_color": "#00000026",
+                "background": true,
+                "background_color": "#000000",
                 "corner_radius": 0,
                 "padding-block-start": 0,
                 "padding-block-end": 0,
@@ -306,7 +279,6 @@
             }
           },
           "block_order": [
-            "spacer_yKY993",
             "text_YRhGG7",
             "text_pr668r"
           ]
