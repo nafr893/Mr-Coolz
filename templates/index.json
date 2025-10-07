@@ -92,7 +92,7 @@
         "group_w38fMr": {
           "type": "group",
           "settings": {
-            "link": "",
+            "link": "shopify://products/red-15-qt-cooler",
             "open_in_new_tab": false,
             "content_direction": "column",
             "vertical_on_mobile": true,
@@ -159,7 +159,7 @@
               "name": "t:names.button",
               "settings": {
                 "label": "SHOP NOW",
-                "link": "shopify://collections/all",
+                "link": "shopify://products/red-15-qt-cooler",
                 "open_in_new_tab": false,
                 "style_class": "button",
                 "width": "fit-content",
@@ -178,7 +178,7 @@
         "group_6rfye3": {
           "type": "group",
           "settings": {
-            "link": "",
+            "link": "shopify://products/45l-cooler",
             "open_in_new_tab": false,
             "content_direction": "column",
             "vertical_on_mobile": true,
@@ -245,7 +245,7 @@
               "name": "t:names.button",
               "settings": {
                 "label": "SHOP NOW",
-                "link": "shopify://collections/all",
+                "link": "shopify://products/45l-cooler",
                 "open_in_new_tab": false,
                 "style_class": "button",
                 "width": "fit-content",
