@@ -25,12 +25,12 @@ section#shopify-section-template--25251905110307__hero_jVaWmY, div#shopify-secti
   }
 }
 /* Show on mobile (up to 767px), hide on desktop */
-section#shopify-section-template--25251905110307__hero_dFxV7d, section#shopify-section-template--25287577501987__hero_dFxV7d {
+section#shopify-section-template--25251905110307__hero_dFxV7d, section#shopify-section-template--25287577501987__hero_dFxV7d, div#Hero-template--25287577501987__hero_dFxV7d {
   display: inline;
 }
 
 @media (min-width: 480px) {
-section#shopify-section-template--25251905110307__hero_dFxV7d, div#shopify-section-template--25251905110307__section_DRMQxF, section#shopify-section-template--25287577501987__hero_dFxV7d {
+section#shopify-section-template--25251905110307__hero_dFxV7d, div#shopify-section-template--25251905110307__section_DRMQxF, section#shopify-section-template--25287577501987__hero_dFxV7d, div#Hero-template--25287577501987__hero_dFxV7d {
     display: none !important;
   }
 }
