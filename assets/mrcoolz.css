@@ -17,21 +17,21 @@ gap: 5px;
 
 /* mr coolz homepage banner css */ 
 section#shopify-section-template--25251905110307__hero_jVaWmY, div#shopify-section-template--25251905110307__section_GD7pdb, section#shopify-section-template--25287577501987__hero_jVaWmY {
-    display: none; 
+    display: none !important; 
 }
 @media (min-width: 768px) {
 section#shopify-section-template--25251905110307__hero_jVaWmY, div#shopify-section-template--25251905110307__section_GD7pdb, section#shopify-section-template--25287577501987__hero_jVaWmY {
-    display: block;
+    display: inline;
   }
 }
 /* Show on mobile (up to 767px), hide on desktop */
 section#shopify-section-template--25251905110307__hero_dFxV7d, section#shopify-section-template--25287577501987__hero_dFxV7d {
-  display: block;
+  display: inline;
 }
 
 @media (min-width: 768px) {
 section#shopify-section-template--25251905110307__hero_dFxV7d, div#shopify-section-template--25251905110307__section_DRMQxF, section#shopify-section-template--25287577501987__hero_dFxV7d {
-    display: none;
+    display: none !important;
   }
 }
 
