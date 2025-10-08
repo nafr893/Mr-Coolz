@@ -19,7 +19,7 @@ gap: 5px;
 section#shopify-section-template--25251905110307__hero_jVaWmY, div#shopify-section-template--25251905110307__section_GD7pdb, section#shopify-section-template--25287577501987__hero_jVaWmY {
     display: none !important; 
 }
-@media (min-width: 768px) {
+@media (min-width: 480px) {
 section#shopify-section-template--25251905110307__hero_jVaWmY, div#shopify-section-template--25251905110307__section_GD7pdb, section#shopify-section-template--25287577501987__hero_jVaWmY {
     display: inline;
   }
@@ -29,7 +29,7 @@ section#shopify-section-template--25251905110307__hero_dFxV7d, section#shopify-s
   display: inline;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 480px) {
 section#shopify-section-template--25251905110307__hero_dFxV7d, div#shopify-section-template--25251905110307__section_DRMQxF, section#shopify-section-template--25287577501987__hero_dFxV7d {
     display: none !important;
   }
