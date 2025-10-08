@@ -395,46 +395,7 @@
               "type": "_footer-social-icons",
               "static": true,
               "settings": {},
-              "blocks": {
-                "social_link_JnLXB6": {
-                  "type": "_social-link",
-                  "name": "Facebook",
-                  "settings": {
-                    "link": "https://www.facebook.com/ridgebelts/"
-                  },
-                  "blocks": {}
-                },
-                "social_link_9i9EqD": {
-                  "type": "_social-link",
-                  "name": "Instagram ",
-                  "settings": {
-                    "link": "https://www.instagram.com/ridgebelts/?hl=en"
-                  },
-                  "blocks": {}
-                },
-                "social_link_kd8UUt": {
-                  "type": "_social-link",
-                  "name": "TikTok",
-                  "settings": {
-                    "link": "https://www.tiktok.com/@ridgebelts/video/7448542419018222894"
-                  },
-                  "blocks": {}
-                },
-                "social_link_aAH768": {
-                  "type": "_social-link",
-                  "name": "YouTube",
-                  "settings": {
-                    "link": "https://www.youtube.com/@ridgebelts"
-                  },
-                  "blocks": {}
-                }
-              },
-              "block_order": [
-                "social_link_JnLXB6",
-                "social_link_9i9EqD",
-                "social_link_kd8UUt",
-                "social_link_aAH768"
-              ]
+              "blocks": {}
             }
           },
           "block_order": []
