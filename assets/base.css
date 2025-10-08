@@ -4280,3 +4280,48 @@ text-component {
     font-size: max(1rem, 100%);
   }
 }
+
+
+/* mr coolz styles */ 
+
+
+/* product page styles */
+
+div#shopify-block-AamhrL0tNWVhUOEhGc__judge_me_reviews_preview_badge_YkLAft.shopify-block.shopify-app-block.jdgm-horizon-widget, div#shopify-block-AS0xRWE1iMnJyZUJSa__judge_me_reviews_preview_badge_YkLAft, div#shopify-block-AU1VTMnFGcm02cDVwW__judge_me_reviews_preview_badge_YkLAft {
+width: fit-content; 
+}
+
+div.jdgm-prev-badge
+{
+    display: flex!important;
+gap: 5px;
+}
+
+
+
+
+/* mr coolz homepage banner css */ 
+section#shopify-section-template--25251905110307__hero_jVaWmY, div#shopify-section-template--25251905110307__section_GD7pdb, section#shopify-section-template--25287577501987__hero_jVaWmY {
+    display: none !important; 
+}
+@media (min-width: 480px) {
+section#shopify-section-template--25251905110307__hero_jVaWmY, div#shopify-section-template--25251905110307__section_GD7pdb, section#shopify-section-template--25287577501987__hero_jVaWmY {
+    display: inline;
+  }
+}
+/* Show on mobile (up to 767px), hide on desktop */
+section#shopify-section-template--25251905110307__hero_dFxV7d, section#shopify-section-template--25287577501987__hero_dFxV7d, div#Hero-template--25287577501987__hero_dFxV7d {
+  display: inline;
+}
+
+@media (min-width: 480px) {
+section#shopify-section-template--25251905110307__hero_dFxV7d, div#shopify-section-template--25251905110307__section_DRMQxF, section#shopify-section-template--25287577501987__hero_dFxV7d, div#Hero-template--25287577501987__hero_dFxV7d {
+    display: none !important;
+  }
+}
+
+div.group-block.group-block--height-fill.group-block--width-fill.border-style.spacing-style.size-style.color-scheme-5  {
+    display: flex;
+    aspect-ratio: 1/1;
+}
+
